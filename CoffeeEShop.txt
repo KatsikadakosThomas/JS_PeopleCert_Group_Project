@@ -1,0 +1,60 @@
+Coffee EShop
+
+	[TABLES]
+	Coffees
+		ID
+		Name / Title
+		CategoryID
+		Price
+	Categories
+		ID
+		Name
+		Description
+		(Base Price)
+	Users
+		ID
+		CreateAt
+		UpdateAt
+		FirstLastName
+		Email
+		RoleID
+		isAdmin
+		isCustomer??? then you don't need Roles
+	[Roles
+		ID
+		Title: {ADMIN, !!!!EDITOR!!!!, CUSTOMER} 
+		Description]
+	Orders
+		ID
+		UsersID
+		TotalPrice <--- 11 (10.5 + 0.5)
+		DateOfPayment
+		isPaid: true
+		isShipped: true
+	OrdersDetails
+		ID
+		OrdersID
+		CoffeeID
+		Price <--- 1 X 2.5, 2 X 3.5, 2 X 1.5 = 10.5 + 0.5
+		Quantity
+
+
+Orders
+	100 OrdersID 100
+	78 UsersID 78
+OrdersDetails
+   ID  OrderID  CoffeeID	Quantity
+	1, 100, 	3, 			1 [CoffeeID:3, Price: 2.5] 1 X 2.5
+	2, 100, 	5, 			2 [CoffeeID:5, Price: 3.5] 2 X 3.5
+	3, 100, 	2, 			1 [CoffeeID:5, Price: 1.5] 2 X 1.5
+
+
+
+
+
+
+
+
+
+
+
