@@ -48,20 +48,12 @@ email status until they click the link in the confirmation email.`
       example: '2$28a8eabna301089103-13948134nad'
     },
 
-    firstName: {
+    fullName: {
       type: 'string',
       required: true,
-      description: 'The users first Name.',
+      description: 'Full representation of the user\'s name.',
       maxLength: 120,
-      example: 'John Maria Bob Giannis Aspasia'
-    },
-
-    lastName: {
-      type: 'string',
-      required: true,
-      description: 'The users Last Name.',
-      maxLength: 120,
-      example: 'Papadopoulos McHenst Lawson Williams Archontakis'
+      example: 'Mary Sue van der McHenst'
     },
 
     isSuperAdmin: {
