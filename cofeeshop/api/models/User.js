@@ -155,6 +155,11 @@ without necessarily having a billing card.`
       example: 1502844074211
     },
 
+    isCustomer: {
+      type: 'boolean',
+      description: 'Whether this user is a "costumer" with order permissions',
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
