@@ -41,7 +41,12 @@ module.exports = {
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     categoryID:{
       model:"categories"
-    }
+    },
+    coffees:{
+      collection: 'orderdetails',
+      via:'coffeeID'
+  }
+
 
   },
 
