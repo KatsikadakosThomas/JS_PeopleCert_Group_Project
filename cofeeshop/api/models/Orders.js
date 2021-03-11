@@ -17,7 +17,7 @@ module.exports = {
       },
 
       DateOfPayment: {
-        type:'date',
+        type:'string',
         required:true,
         description: "payment date",
       },

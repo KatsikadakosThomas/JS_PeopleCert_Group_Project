@@ -18,7 +18,7 @@ module.exports = {
         },
         Description: {
             type: 'string',
-            required: 'true',
+            required: true,
             maxLength: 80,
         },
 
