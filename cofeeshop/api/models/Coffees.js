@@ -24,17 +24,13 @@ module.exports = {
       required: true,
       maxLength: 80,
      },
-     
+
      price: {
       type:'number',
       required:true,
       description: "products price",
       example: 1.65
-    }
-
-
-    
-
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -43,6 +39,9 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    categoryID:{
+      model:"categories"
+    }
 
   },
 
