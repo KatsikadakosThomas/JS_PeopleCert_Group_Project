@@ -9,25 +9,25 @@ module.exports = {
 
   attributes: {
 
+
     totalPrice:{
-       type:'number',
-       required: true,
-       description: 'total price of products',
-       example: 10,
-      },
+      type:'number',
+      required: true,
+      description: 'total price of products',
+      example: 10,
+     },
 
-      DateOfPayment: {
-        type:'date',
-        required:true,
-        description: "payment date",
-      },
+     DateOfPayment: {
+       type:'string',
+       required:true,
+       description: "payment date",
+     },
 
-      isPaid: {
-        type:'boolean',
-        required:true,
-        description: "if payment is completed"
-      }
-
+     isPaid: {
+       type:'boolean',
+       required:true,
+       description: "if payment is completed"
+     },
 
 
 
