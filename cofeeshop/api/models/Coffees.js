@@ -1,5 +1,5 @@
 /**
- * Orders.js
+ * Coffees.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -8,30 +8,29 @@
 module.exports = {
 
   attributes: {
+
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    name:{
+      type:'string',
+      required: true,
+      description: 'The name of the product',
+      example: "esspreso machiato lugo cappuccino",
+     },
 
-    totalPrice:{
-       type:'number',
-       required: true,
-       description: 'total price of products',
-       example: 10,
-      },
+     Description: {
+      type: 'string',
+      required: true,
+      maxLength: 80,
+     },
 
-      DateOfPayment: {
-        type:'string',
-        required:true,
-        description: "payment date",
-      },
-
-      isPaid: {
-        type:'boolean',
-        required:true,
-        description: "if payment is completed"
-      },
-
-
+     price: {
+      type:'number',
+      required:true,
+      description: "products price",
+      example: 1.65
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -40,14 +39,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    userID:{
-      model:"user"
+    categoryID:{
+      model:"categories"
     },
-
-    Orders:{
+    coffees:{
       collection: 'orderdetails',
-      via:'ordersID'
+      via:'coffeeID'
   }
+
 
   },
 
