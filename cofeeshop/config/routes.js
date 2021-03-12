@@ -35,6 +35,11 @@ module.exports.routes = {
         view: 'pages/demo/homepage',
         locals: { layout: 'layouts/new-layout' },
     },
+    'GET /demo/shop': {
+      view: 'pages/demo/shop',
+      locals: { layout: 'layouts/new-layout' },
+    },
+
 
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
     //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
