@@ -36,8 +36,7 @@ module.exports.routes = {
         locals: { layout: 'layouts/new-layout' },
     },
     'GET /demo/shop': {
-      view: 'pages/demo/shop',
-      locals: { layout: 'layouts/new-layout' },
+      view: 'pages/demo/shop'
     },
 
 
