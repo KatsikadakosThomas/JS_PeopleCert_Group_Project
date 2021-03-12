@@ -10,7 +10,6 @@ Coffee EShop
 		ID
 		Name
 		Description
-		(Base Price)
 	Users
 		ID
 		CreateAt
@@ -20,10 +19,6 @@ Coffee EShop
 		RoleID
 		isAdmin
 		isCustomer??? then you don't need Roles
-	[Roles
-		ID
-		Title: {ADMIN, !!!!EDITOR!!!!, CUSTOMER} 
-		Description]
 	Orders
 		ID
 		UsersID
