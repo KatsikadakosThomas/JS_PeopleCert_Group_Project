@@ -1,5 +1,5 @@
 /**
- * OrderDetails.js
+ * Coffees.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
@@ -9,39 +9,28 @@ module.exports = {
 
   attributes: {
 
-
-    Price: {
-      type:'number',
-      required:true,
-      description: "the cost of the product",
-      example: 3
-    },
-    Quantity: {
-      type:'number',
-      required:true,
-      description: "the quantity of the product",
-      example: 2
-    }
-
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+    name:{
+      type:'string',
+      required: true,
+      description: 'The name of the product',
+      example: "esspreso machiato lugo cappuccino",
+     },
 
-    
-    Price: {
+     Description: {
+      type: 'string',
+      required: true,
+      maxLength: 80,
+     },
+
+     price: {
       type:'number',
       required:true,
-      description: "the cost of the product",
-      example: 3
+      description: "products price",
+      example: 1.65
     },
-    Quantity: {
-      type:'number',
-      required:true,
-      description: "the quantity of the product",
-      example: 2
-    },
-
-
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -50,12 +39,14 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-   coffeeID:{
-      model:"coffees"
+    categoryID:{
+      model:"categories"
     },
-   ordersID:{
-     model:"orders"
-   }
+    coffees:{
+      collection: 'orderdetails',
+      via:'coffeeID'
+  }
+
 
   },
 
