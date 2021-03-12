@@ -21,7 +21,7 @@ module.exports = {
       required:true,
       description: "the quantity of the product",
       example: 2
-    }
+    },
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

@@ -12,6 +12,8 @@ module.exports.routes = {
     //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
     //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
     //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
+    
+    
     'GET /': { action: 'view-homepage-or-redirect' },
     'GET /welcome/:unused?': { action: 'dashboard/view-welcome' },
 
@@ -36,7 +38,7 @@ module.exports.routes = {
         locals: { layout: 'layouts/new-layout' },
     },
     'GET /demo/shop': {
-      view: 'pages/demo/shop'
+      action: 'demo/shop'
     },
 
 
