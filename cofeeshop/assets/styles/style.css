@@ -70,16 +70,8 @@ footer {
     right: -40%;
 }
 
-/* .caption1 img {
-    position: absolute;
-    top: 45%;
-    left: -40%;
-} */
-
-.caption2 {
-    position: absolute;
-    top: 45%;
-    right: -40%;
+.caption1 img {
+    margin: auto;
 }
 
 .order-now-button {
