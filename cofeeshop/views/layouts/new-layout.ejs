@@ -6,7 +6,7 @@
         <% /* Viewport tag for sensible mobile support */ %>
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1"
+            content="width=device-width, initial-scale=0.6, maximum-scale=1"
         />
 
         <% /* Script tags should normally be included further down the page- but
@@ -28,12 +28,19 @@
         (https://sailsjs.com/docs/concepts/assets/task-automation) */ %> <% /*
         Auto-injected «link» tags: */ %>
         <!--STYLES-->
-        <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap-4.css">
-        <link rel="stylesheet" href="/dependencies/bootstrap-4/bootstrap.min.css">
-        <link rel="stylesheet" href="/dependencies/fontawesome.css">
-        <link rel="stylesheet" href="/styles/importer.css">
-        <link rel="stylesheet" href="/styles/style.css">
-        <link rel="stylesheet" href="/styles/w3.css">
+        <link rel="stylesheet" href="/dependencies/animate.min.css" />
+        <link
+            rel="stylesheet"
+            href="/dependencies/bootstrap-4/bootstrap-4.css"
+        />
+        <link
+            rel="stylesheet"
+            href="/dependencies/bootstrap-4/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/dependencies/fontawesome.css" />
+        <link rel="stylesheet" href="/styles/importer.css" />
+        <link rel="stylesheet" href="/styles/style.css" />
+        <link rel="stylesheet" href="/styles/w3.css" />
         <!--STYLES END-->
     </head>
     <body>
@@ -71,7 +78,6 @@
             let footerContent = document.querySelector('footer');
             let layoutHeader = document.querySelector('.header');
             if (window.location.pathname === '/demo/homepage') {
-                footerContent.style.display = 'none';
                 layoutHeader.style.display = 'none';
             }
         </script>
