@@ -6,6 +6,12 @@
  */
 
 module.exports = {
+   inputs:{
+   id:{type:'number', required: true}
+
+   },
+
+
    exits:{
        success:{
            viewTemplatePath:'pages/shop'
@@ -14,6 +20,8 @@ module.exports = {
 
 
    fn: async function () {
+
+     let CoffeeID = await Coffees.findOne()
        return {};
    }
 
