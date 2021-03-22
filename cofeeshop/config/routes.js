@@ -35,8 +35,9 @@ module.exports.routes = {
         view: 'pages/demo/homepage',
         locals: { layout: 'layouts/new-layout' },
     },
-    'GET /demo/shop': {
+    'GET /demo/homepage/shop': {
         view: 'pages/demo/shop',
+        locals: { layout: 'layouts/new-layout' },
     },
 
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗

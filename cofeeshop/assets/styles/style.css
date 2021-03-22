@@ -6,6 +6,7 @@
     color: white;
     z-index: 10;
     top: 0;
+    display: none;
 }
 .header-right {
     float: right;
