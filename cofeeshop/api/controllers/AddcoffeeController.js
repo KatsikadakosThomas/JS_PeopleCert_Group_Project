@@ -1,4 +1,10 @@
-module.exports = {
+/**
+ * AddcoffeeController
+ *
+ * @description :: Server-side actions for handling incoming requests.
+ * @help        :: See https://sailsjs.com/docs/concepts/actions
+ */
+ module.exports = {
     exits: {
         success: {
           name:{
@@ -24,17 +30,18 @@ module.exports = {
         name: inputs.name,
         Description: inputs.Description,
         price: inputs.price,
-      });
+});
 
       if (!addCoffee) {
         return exits.invalid({
-          message: 'Wrong user'
+          message: 'Wrong coffee'
         });
       }
       return exits.success({
         message: 'Coffee was created successfully.',
         data: coffeesRecord
-      });
+      }); 
     } 
  }
 }
+
