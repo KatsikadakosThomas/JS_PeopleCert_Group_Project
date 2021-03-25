@@ -37,12 +37,11 @@ module.exports.routes = {
         view: 'pages/demo/homepage',
         locals: { layout: 'layouts/new-layout' },
     },
-    'GET /demo/shop': {
-        view: 'pages/demo/shop'
-      },
-      'POST /demo/shop': {action: 'demo/shop'},
-
-
+    'GET /demo/shop': {view: 'pages/demo/shop'},
+    'POST /demo/shop': {action: 'demo/query'},
+    'GET /demo/add_coffee': {view: 'pages/demo/add_coffee'},
+    
+    'POST /api/v1/demo/add_coffee': { action: 'demo/add_coffee' },
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
     //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
     //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
