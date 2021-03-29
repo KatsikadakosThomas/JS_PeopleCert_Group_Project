@@ -39,6 +39,26 @@ module.exports.routes = {
         view: 'pages/demo/shop',
         locals: { layout: 'layouts/new-layout' },
     },
+    
+    
+      'GET /products': 'PageController.index',
+    
+      'GET /product/add': 'PageController.addProduct',
+
+      'GET /product/category/add': 'PageController.addCategory',
+
+      'POST /category/add': 'CategoryController.create',
+    
+      'POST /product/add': 'ProductController.create',
+
+      'GET /add-to-cart/:id': 'CartController.add',
+    
+      'POST /update-cart-item': 'CartController.update',
+    
+      'GET /cart': 'PageController.showCartPage',
+    
+      'GET /remove-item/:id': 'CartController.remove',
+    
 
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
     //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗

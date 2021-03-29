@@ -19,10 +19,10 @@ module.exports = {
       example: "esspreso machiato lugo cappuccino",
      },
 
-     Description: {
+     description: {
       type: 'string',
       required: true,
-      maxLength: 80,
+      maxLength: 140,
      },
 
      price: {
@@ -30,6 +30,10 @@ module.exports = {
       required:true,
       description: "products price",
       example: 1.65
+    },
+
+    image: {
+      type: 'string',
     },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
