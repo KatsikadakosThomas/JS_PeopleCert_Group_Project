@@ -1,0 +1,57 @@
+<div class="container">
+<% if(status == 'notEmpty') { %>
+  
+  <div class="row">
+    <div class="alert alert-success">
+       <%= message %>
+    </div>
+  </div>
+
+<% } %>
+<div class="row">
+<h5 class="display-4">Products</h5>
+</div>
+<!-- Page Features -->
+      <div class="row text-center">
+      <div class="products-list">
+        <ul class="list-inline">
+          <% products.forEach(function(product) { %>
+          <li>
+            <div class="card">
+              <img class="card-img-top" src="<%= product.image %>" alt="product_image">
+              <p><%= product.name %></p>
+              <div class="card-footer">
+              
+                <% if (req.session.cart && 'item'+product.id in req.session.cart.items) { %>
+                  
+                  <form action="/update-cart-item" method="post">
+                    <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                    <div class="form-group">
+                      <select name="quantity">
+                      <option value="<%= req.session.cart.items['item'+product.id].qty %>" selected>
+                        <%= req.session.cart.items['item'+product.id].qty %>
+                        </option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                    <input type="hidden" name="productId" value="<%= product.id %>">
+                    </div>
+                   
+                    <button type="submit" class="btn btn-success">Update</button>
+                  </form>
+                  
+                <% } else { %>
+
+                   <a href="/add-to-cart/<%= product.id %>" class="btn btn-primary">Add to cart</a>
+                   <a href="/deleteProduct/<%= product.id %>" class="btn btn-primary">Delete Type Entirely</a>
+
+                <% } %>
+               
+              </div>
+            </div>
+          </li>
+          <% }) %>
+        </ul>   
+      </div>       
+      <!-- /.row -->
+</div>
