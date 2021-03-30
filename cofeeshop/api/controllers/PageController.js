@@ -6,13 +6,19 @@
  */
 
 module.exports = {
-  addProduct: async function (req, res) {
+  manageProducts: async function (req, res) {
     const categories = await Categories.find();
     return res.view("pages/admin/add_product", { categories: categories });
   },
-  addCategory: async function (req, res) {
+  manageCategories: async function (req, res) {
     const categories = await Categories.find();
-    return res.view("pages/admin/add_category", { categories: categories });
+    const message = req.session.success;
+    req.session.success = [];
+    return res.view("pages/admin/manage_categories", {
+      categories: categories,
+      status: "notEmpty",
+      message: message,
+    });
   },
   index: async function (req, res) {
     var message = req.session.success;
