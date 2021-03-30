@@ -8,7 +8,15 @@
 module.exports = {
   manageProducts: async function (req, res) {
     const categories = await Categories.find();
-    return res.view("pages/admin/add_product", { categories: categories });
+    const products = await Coffees.find();
+    const message = req.session.success;
+    req.session.success = [];
+    return res.view("pages/admin/manage_products", { 
+    categories: categories,
+    products:products,
+    status: "notEmpty",
+    message: message,
+    });
   },
   manageCategories: async function (req, res) {
     const categories = await Categories.find();

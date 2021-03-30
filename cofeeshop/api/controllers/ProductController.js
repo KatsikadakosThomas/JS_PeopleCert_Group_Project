@@ -5,26 +5,32 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+const { manageCategories } = require("./PageController");
+
 module.exports = {
   
     create: async function(req, res) {
 
-        var productName = req.body.name
-        var price = req.body.price
-        var image = req.body.image
-        var desc = req.body.description
-
+        const productName = req.body.Add_name;
+        const price = req.body.Add_price;
+        const image = req.body.Add_image;
+        const desc = req.body.Add_description;
+        const category = req.body.Add_category;
+        const categoryId = await Categories.findOne({
+            Name: category
+        })
         await Coffees.create({
             name: productName,
             price: price,
             image: image,
-            description: desc
+            description: desc,
+            categoryID: categoryId.id,
         })
 
         //put a success message in session
-        req.session.success = 'Coffees successfully registered.'
+        req.session.success = `Coffee ${productName} successfully added.`
 
-        res.redirect('/products');
+        res.redirect('/products/manage');
         
     },
 

@@ -60,7 +60,7 @@
   </div>
   <div id="admin_add_category_form" class="container">
     <h4 class="display-5">Add Category</h4>
-    <form action="/category/add" method="post" style="width: 50%">
+    <form action="/category/add" method="post" style="width: 50%" name="add_category_form">
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       <div class="form-group">
         <label for="Add_name">Category name:</label>
@@ -207,7 +207,6 @@
           referenceNumber = buttonId.substr(14, 15);
           break;
       }
-      console.log(referenceNumber);
       document.forms["delete_category_form"]["Delete_name"].value =
         categoryNames[referenceNumber - 1].innerText;
       document.forms["delete_category_form"]["Delete_description"].value =
