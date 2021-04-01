@@ -29,11 +29,11 @@ module.exports = {
     });
   },
   index: async function (req, res) {
-    var message = req.session.success;
+    const message = req.session.success;
     req.session.success = [];
 
     //get all products
-    var products = await Coffees.find();
+    let products = await Coffees.find();
 
     if (message != undefined && message.length != 0) {
       return res.view("pages/admin/index", {
@@ -50,12 +50,12 @@ module.exports = {
   },
 
   showCartPage: function (req, res) {
-    var cart = req.session.cart;
+    let cart = req.session.cart;
 
     if (cart != undefined) {
-      var items = cart.items;
+      let items = cart.items;
     } else {
-      var items = 0;
+      let items = 0;
     }
 
     return res.view("pages/admin/cart", { items: items });
