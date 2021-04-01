@@ -6,10 +6,7 @@
  */
 
 module.exports = {
-   inputs:{
-   id:{type:'number', required: true}
 
-   },
 
 
    exits:{
@@ -20,10 +17,9 @@ module.exports = {
 
 
    fn: async function () {
-
-     let CoffeeID = await Coffees.findOne()
-       return {};
+    let coffeeData = await Coffees.findOne({ id: 1 });
+    console.log(coffeeData);
+    return {coffeeData};
    }
 
 };
-
