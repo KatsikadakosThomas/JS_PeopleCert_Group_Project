@@ -16,7 +16,7 @@ module.exports = {
   		//upate current cart if cart is in session
       //send the request object to the update helper
 
-      var updateCart = await sails.helpers.updateCart(req);
+      let updateCart = await sails.helpers.updateCart(req);
 
       req.session.cart = updateCart
 
@@ -26,7 +26,7 @@ module.exports = {
   	} else {
 
   		//create new cart and add if no cart in session
-  		var cart = await sails.helpers.addToCart(req.param('id'), 1)
+  		let cart = await sails.helpers.addToCart(req.param('id'), 1)
 
   		//Put it in session
   		req.session.cart = cart
@@ -39,7 +39,7 @@ module.exports = {
 
   update: async function(req, res) {
 
-    var updateCart = await sails.helpers.updateCart(req);
+    let updateCart = await sails.helpers.updateCart(req);
 
     return res.redirect('back')
 
@@ -47,9 +47,9 @@ module.exports = {
 
   remove: function(req, res) {
 
-    var cart= req.session.cart
+    let cart= req.session.cart
 
-    var id = 'item'+req.param('id')
+    let id = 'item'+req.param('id')
 
     //update total qty
     cart.totalQty = cart.totalQty - cart.items[id].qty

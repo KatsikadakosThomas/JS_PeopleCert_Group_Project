@@ -54,6 +54,10 @@ module.exports.routes = {
 
   "POST /product/add": "ProductController.create",
 
+  "POST /product/edit": "ProductController.edit",
+
+  "POST /product/delete": "ProductController.delete",
+
   "GET /add-to-cart/:id": "CartController.add",
 
   "POST /update-cart-item": "CartController.update",
