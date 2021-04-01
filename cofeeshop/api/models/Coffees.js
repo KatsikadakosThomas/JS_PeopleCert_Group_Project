@@ -19,7 +19,7 @@ module.exports = {
       example: "esspreso machiato lugo cappuccino",
      },
 
-     Description: {
+     description: {
       type: 'string',
       required: true,
       maxLength: 80,

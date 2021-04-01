@@ -40,6 +40,21 @@ module.exports.routes = {
     },
 
 
+
+
+
+
+
+    //Populate routes
+    'GET /demo/populate': {
+        view: 'pages/demo/populate'
+    },
+    'POST /demo/populatecofees': { action: 'populate/populatecoffeescontroller' },
+    'POST /demo/populatecategories': { action: 'populate/populatecategoriescontroller' },
+    'POST /demo/populateorders': { action: 'populate/populateorderscontroller' },
+    'POST /demo/populateorderdetails': { action: 'populate/populateorderdetailscontroller' },
+
+
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
     //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
     //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝

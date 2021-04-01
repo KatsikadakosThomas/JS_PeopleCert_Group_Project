@@ -21,5 +21,8 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
-
+  'populate/populatecoffeescontroller': true,
+  'populate/populatecategoriescontroller':true,
+  'populate/populateorderscontroller':true,
+  'populate/populateorderdetailscontroller':true,
 };
