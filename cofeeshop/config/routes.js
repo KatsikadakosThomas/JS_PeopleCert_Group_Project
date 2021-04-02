@@ -49,10 +49,10 @@ module.exports.routes = {
     'GET /demo/populate': {
         view: 'pages/demo/populate'
     },
-    'POST /demo/populatecofees': { action: 'populate/populatecoffeescontroller' },
-    'POST /demo/populatecategories': { action: 'populate/populatecategoriescontroller' },
-    'POST /demo/populateorders': { action: 'populate/populateorderscontroller' },
-    'POST /demo/populateorderdetails': { action: 'populate/populateorderdetailscontroller' },
+    'POST /demo/populatecofees': { action: 'populate/populatecoffeescontroller',csrf: false },
+    'POST /demo/populatecategories': { action: 'populate/populatecategoriescontroller',csrf: false },
+    'POST /demo/populateorders': { action: 'populate/populateorderscontroller',csrf: false },
+    'POST /demo/populateorderdetails': { action: 'populate/populateorderdetailscontroller',csrf: false },
 
 
     //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
