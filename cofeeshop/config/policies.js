@@ -25,4 +25,24 @@ module.exports.policies = {
   'populate/populatecategoriescontroller':true,
   'populate/populateorderscontroller':true,
   'populate/populateorderdetailscontroller':true,
+  
+  // //Super admin policies
+
+  // PageController: { 
+  
+  //   "*":"is-super-admin",
+  //   "index":true,
+  // },
+  // CategoryController:{
+  //   "*":"is-super-admin"
+  // },
+  // ProductController:{
+  //   "*":"is-super-admin"
+  // },
+  // UserController:{
+  //   "*":"is-super-admin"
+  // },
+
+
+
 };
