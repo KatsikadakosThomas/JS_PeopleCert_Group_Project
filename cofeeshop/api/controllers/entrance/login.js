@@ -113,7 +113,6 @@ and exposed as \`req.me\`.)`
     if (sails.hooks.sockets) {
       await sails.helpers.broadcastSessionChange(this.req);
     }
-
   }
 
 };

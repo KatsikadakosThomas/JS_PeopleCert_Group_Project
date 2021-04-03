@@ -18,7 +18,7 @@ module.exports = {
     //put a success message in session
     req.session.success = `Category ${categoryName} succesfully created.`;
 
-    res.redirect("/products/category/manage");
+    res.redirect("/admin/category/manage");
   },
   delete: async function (req, res) {
      const categoryName = req.body.Delete_name;
@@ -32,7 +32,7 @@ module.exports = {
     //put a success message in session
     req.session.success = `Category ${categoryName} succesfully deleted.`;
 
-    res.redirect("/products/category/manage");
+    res.redirect("/admin/category/manage");
   },
   edit: async function (req, res) {
     const categoryName = req.body.Edit_name;
@@ -51,6 +51,6 @@ module.exports = {
     //put a success message in session
     req.session.success = `Category ${categoryNameHidden} succesfully edited.`;
 
-    res.redirect("/products/category/manage");
+    res.redirect("/admin/category/manage");
   },
 };
