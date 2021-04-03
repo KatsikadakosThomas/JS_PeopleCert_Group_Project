@@ -30,7 +30,7 @@ module.exports = {
         //put a success message in session
         req.session.success = `Coffee ${productName} successfully added.`
 
-        res.redirect('/products/manage');
+        res.redirect('/admin/products/manage');
         
     },
 
@@ -39,7 +39,7 @@ module.exports = {
         await Coffees.destroy({name:productName})
         //put a success message in session
         req.session.success = `Coffee ${productName} successfully deleted.`
-        res.redirect('/products/manage');
+        res.redirect('/admin/products/manage');
     },
     edit: async function (req,res){
         const productName = req.body.Edit_name;
@@ -86,7 +86,7 @@ module.exports = {
         //put a success message in session
         req.session.success = `Coffee ${productNameHidden} successfully edited.`
 
-        res.redirect('/products/manage');
+        res.redirect('/admin/products/manage');
     }
 
 };

@@ -28,24 +28,37 @@ module.exports = {
       message: message,
     });
   },
+  manageUsers: async function (req, res) {
+    const users = await User.find();
+    const message = req.session.success;
+    req.session.success = [];
+    return res.view("pages/admin/manage_users", {
+      users: users,
+      status: "notEmpty",
+      message: message,
+    });
+  },
   index: async function (req, res) {
     const message = req.session.success;
     req.session.success = [];
 
     //get all products
     let products = await Coffees.find();
+    let categories= await Categories.find();
 
     if (message != undefined && message.length != 0) {
       return res.view("pages/admin/index", {
         status: "notEmpty",
         message: message,
         products: products,
+        categories: categories,
       });
     }
 
     return res.view("pages/admin/index", {
       status: "empty",
       products: products,
+      categories: categories,
     });
   },
 

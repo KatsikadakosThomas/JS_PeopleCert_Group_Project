@@ -42,21 +42,29 @@ module.exports.routes = {
 
   "GET /products": "PageController.index",
 
-  "GET /products/manage": "PageController.manageProducts",
+  "GET /admin/products/manage": "PageController.manageProducts",
 
-  "GET /products/category/manage": "PageController.manageCategories",
+  "GET /admin/users/manage": "PageController.manageUsers",
 
-  "POST /category/add": "CategoryController.create",
+  "GET /admin/category/manage": "PageController.manageCategories",
 
-  "POST /category/edit": "CategoryController.edit",
+  "POST /admin/category/add": "CategoryController.create",
 
-  "POST /category/delete": "CategoryController.delete",
+  "POST /admin/category/edit": "CategoryController.edit",
 
-  "POST /product/add": "ProductController.create",
+  "POST /admin/category/delete": "CategoryController.delete",
 
-  "POST /product/edit": "ProductController.edit",
+  "POST /admin/product/add": "ProductController.create",
 
-  "POST /product/delete": "ProductController.delete",
+  "POST /admin/product/edit": "ProductController.edit",
+
+  "POST /admin/product/delete": "ProductController.delete",
+
+  "POST /admin/user/add": "UserController.create",
+
+  "POST /admin/user/edit": "UserController.edit",
+
+  "POST /admin/user/delete": "UserController.delete",
 
   "GET /add-to-cart/:id": "CartController.add",
 

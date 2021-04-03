@@ -19,20 +19,12 @@
         </tr>
       </thead>
       <tbody>
-        <% let i = 0 %>
-        <%categories.forEach(function(category) {
-          i++;%>
+        <% let i = 0 %> <%categories.forEach(function(category) { i++;%>
         <tr class="text-center">
-          <td
-            class="align-middle category_name"
-            id="category_name_<%=i%>"
-          >
+          <td class="align-middle category_name" id="category_name_<%=i%>">
             <%=category.Name%>
           </td>
-          <td
-            class="align-middle category_desc"
-            id="category_desc_<%=i%>"
-          >
+          <td class="align-middle category_desc" id="category_desc_<%=i%>">
             <%=category.Description%>
           </td>
           <td>
@@ -60,11 +52,16 @@
   </div>
   <div id="admin_add_category_form" class="container">
     <h4 class="display-5">Add Category</h4>
-    <form action="/category/add" method="post" style="width: 50%" name="add_category_form">
+    <form
+      action="/admin/category/add"
+      method="post"
+      style="width: 50%"
+      name="add_category_form"
+    >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       <div class="form-group">
         <label for="Add_name">Category name:</label>
-        <input type="text" name="Add_name" class="form-control" required/>
+        <input type="text" name="Add_name" class="form-control" required />
       </div>
 
       <div class="form-group">
@@ -84,16 +81,15 @@
   <div id="admin_edit_category_form" class="container">
     <h4 class="display-5">Edit Category</h4>
     <form
-      action="/category/edit"
+      action="/admin/category/edit"
       method="post"
       style="width: 50%"
       name="edit_category_form"
     >
-      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       <div class="form-group">
         <label for="Edit_name">Category name:</label>
         <input type="hidden" name="Edit_name_hidden" value="" />
-        <input type="text" name="Edit_name" class="form-control" required/>
+        <input type="text" name="Edit_name" class="form-control" required />
       </div>
 
       <div class="form-group">
@@ -114,7 +110,7 @@
   <div id="admin_delete_category_form" class="container">
     <h4 class="display-5">Delete Category</h4>
     <form
-      action="/category/delete"
+      action="/admin/category/delete"
       method="post"
       style="width: 50%"
       name="delete_category_form"
@@ -125,7 +121,13 @@
       </h1>
       <div class="form-group">
         <label for="Delete_name">Category name:</label>
-        <input type="text" name="Delete_name" class="form-control" required readonly />
+        <input
+          type="text"
+          name="Delete_name"
+          class="form-control"
+          required
+          readonly
+        />
       </div>
       <div class="form-group">
         <label for="Delete_description">Description:</label>
