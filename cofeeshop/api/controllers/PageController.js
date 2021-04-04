@@ -64,11 +64,11 @@ module.exports = {
 
   showCartPage: function (req, res) {
     let cart = req.session.cart;
-
+   
     if (cart != undefined) {
-      let items = cart.items;
+       items = cart.items;
     } else {
-      let items = 0;
+       items = 0;
     }
 
     return res.view("pages/admin/cart", { items: items });

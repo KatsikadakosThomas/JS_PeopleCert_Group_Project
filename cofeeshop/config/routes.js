@@ -40,39 +40,49 @@ module.exports.routes = {
     locals: { layout: "layouts/new-layout" },
   },
 
+  //Shop page
   "GET /products": "PageController.index",
 
-  "GET /admin/products/manage": "PageController.manageProducts",
+  //Admin pages
+  "GET /admin/products/manage" : "PageController.manageProducts",
+  "GET /admin/users/manage"    : "PageController.manageUsers",
+  "GET /admin/category/manage" : "PageController.manageCategories",
 
-  "GET /admin/users/manage": "PageController.manageUsers",
-
-  "GET /admin/category/manage": "PageController.manageCategories",
-
-  "POST /admin/category/add": "CategoryController.create",
-
-  "POST /admin/category/edit": "CategoryController.edit",
-
+  //Categories CRUD routes
+  "POST /admin/category/add"   : "CategoryController.create",
+  "POST /admin/category/edit"  : "CategoryController.edit",
   "POST /admin/category/delete": "CategoryController.delete",
 
-  "POST /admin/product/add": "ProductController.create",
+  //Product CRUD routes
+  "POST /admin/product/add"    : "ProductController.create",
+  "POST /admin/product/edit"   : "ProductController.edit",
+  "POST /admin/product/delete" : "ProductController.delete",
 
-  "POST /admin/product/edit": "ProductController.edit",
-
-  "POST /admin/product/delete": "ProductController.delete",
-
-  "POST /admin/user/add": "UserController.create",
-
-  "POST /admin/user/edit": "UserController.edit",
-
+  //user CRUD routes
+  "POST /admin/user/add"   : "UserController.create",
+  "POST /admin/user/edit"  : "UserController.edit",
   "POST /admin/user/delete": "UserController.delete",
 
-  "GET /add-to-cart/:id": "CartController.add",
-
+  //Cart CRUD routes
+  "GET /add-to-cart/:id"  : "CartController.add",
   "POST /update-cart-item": "CartController.update",
+  "GET /cart"             : "PageController.showCartPage",
+  "GET /remove-item/:id"  : "CartController.remove",
 
-  "GET /cart": "PageController.showCartPage",
+  
+//Populate routes
+'GET /demo/populate': {
+  view: 'pages/demo/populate'
+},
+//post for populate
+'POST /demo/populatecofees'      : { action: 'populate/populatecoffeescontroller',csrf: false },
+'POST /demo/populatecategories'  : { action: 'populate/populatecategoriescontroller',csrf: false },
+'POST /demo/populateorders'      : { action: 'populate/populateorderscontroller',csrf: false },
+'POST /demo/populateorderdetails': { action: 'populate/populateorderdetailscontroller',csrf: false },
 
-  "GET /remove-item/:id": "CartController.remove",
+
+
+
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
