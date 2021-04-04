@@ -14,6 +14,7 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   "GET /": { action: "view-homepage-or-redirect" },
   "GET /welcome/:unused?": { action: "dashboard/view-welcome" },
+  "GET /adminwelcome/:unused?": {action: "dashboard/adminwelcome"},
 
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
@@ -39,11 +40,14 @@ module.exports.routes = {
     view: "pages/demo/shop",
     locals: { layout: "layouts/new-layout" },
   },
+  
+
 
   //Shop page
   "GET /products": "PageController.index",
 
   //Admin pages
+
   "GET /admin/products/manage" : "PageController.manageProducts",
   "GET /admin/users/manage"    : "PageController.manageUsers",
   "GET /admin/category/manage" : "PageController.manageCategories",

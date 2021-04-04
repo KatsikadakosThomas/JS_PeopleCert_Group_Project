@@ -1,0 +1,19 @@
+<div id="adminwelcome">
+    <account-notification-banner></account-notification-banner>
+    <div class="container pt-5 pb-5">
+      <h1>Welcome!</h1>
+      <hr/>
+      <p>This is a page that only Admins can visit.</p>
+      <div class="buttons">
+        <a class="btn btn-info" href="/account/profile">Update my email</a>
+      </div>
+    </div>
+  
+    <router-view></router-view>
+  
+    <!--  ╔═╗═╗ ╦╔═╗╔╦╗╔═╗╦  ╔═╗  ┌┬┐┌─┐┌┬┐┌─┐┬
+          ║╣ ╔╩╦╝╠═╣║║║╠═╝║  ║╣   ││││ │ ││├─┤│
+          ╚═╝╩ ╚═╩ ╩╩ ╩╩  ╩═╝╚═╝  ┴ ┴└─┘─┴┘┴ ┴┴─┘  -->
+    
+  <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
+  
