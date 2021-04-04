@@ -21,5 +21,25 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
-  'shop':true
+  'populate/*':true,
+  
+  // //Super admin policies
+
+  // PageController: { 
+  
+  //   "*":"is-super-admin",
+  //   "index":true,
+  // },
+  // CategoryController:{
+  //   "*":"is-super-admin"
+  // },
+  // ProductController:{
+  //   "*":"is-super-admin"
+  // },
+  // UserController:{
+  //   "*":"is-super-admin"
+  // },
+
+
+
 };
