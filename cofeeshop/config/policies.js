@@ -31,6 +31,7 @@ module.exports.policies = {
      "showShopPage": true,
      "home":true,
      "contactUs":true,
+     "showCartPage":true,
      
    },
 
