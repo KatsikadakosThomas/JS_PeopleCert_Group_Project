@@ -9,8 +9,7 @@
  */
 
 module.exports.policies = {
-
-  '*': 'is-logged-in',
+  "*": "is-logged-in",
 
   // Bypass the `is-logged-in` policy for:
   'entrance/*': true,
@@ -23,22 +22,17 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'populate/*':true,
   
-  // //Super admin policies
+   //Super admin policies
 
-  // PageController: { 
+  /*  PageController: { 
   
-  //   "*":"is-super-admin",
-  //   "index":true,
-  // },
-  // CategoryController:{
-  //   "*":"is-super-admin"
-  // },
-  // ProductController:{
-  //   "*":"is-super-admin"
-  // },
-  // UserController:{
-  //   "*":"is-super-admin"
-  // },
+     "*":"is-super-admin",
+     "index":true,
+     
+   },
+
+   "dashboard/adminwelcome" : "is-super-admin",
+ */
 
 
 
