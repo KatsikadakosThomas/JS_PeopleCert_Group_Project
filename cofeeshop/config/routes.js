@@ -31,58 +31,61 @@ module.exports.routes = {
   "GET /account": { action: "account/view-account-overview" },
   "GET /account/password": { action: "account/view-edit-password" },
   "GET /account/profile": { action: "account/view-edit-profile" },
-  "GET /demo/homepage": {
-    view: "pages/demo/homepage",
-    locals: { layout: "layouts/new-layout" },
-  },
-  "GET /demo/homepage/shop": {
-    view: "pages/demo/shop",
-    locals: { layout: "layouts/new-layout" },
-  },
 
+
+  "GET /demo/homepage": "PageController.home",
+  // Contact us page
+  "GET /demo/contact-us": "PageController.contactUs",
   //Shop page
   "GET /products": "PageController.index",
-
+  "GET /demo/homepage/shop": "PageController.showShopPage",
   //Admin pages
-  "GET /admin/products/manage" : "PageController.manageProducts",
-  "GET /admin/users/manage"    : "PageController.manageUsers",
-  "GET /admin/category/manage" : "PageController.manageCategories",
+  "GET /admin/products/manage": "PageController.manageProducts",
+  "GET /admin/users/manage": "PageController.manageUsers",
+  "GET /admin/category/manage": "PageController.manageCategories",
 
   //Categories CRUD routes
-  "POST /admin/category/add"   : "CategoryController.create",
-  "POST /admin/category/edit"  : "CategoryController.edit",
+  "POST /admin/category/add": "CategoryController.create",
+  "POST /admin/category/edit": "CategoryController.edit",
   "POST /admin/category/delete": "CategoryController.delete",
 
   //Product CRUD routes
-  "POST /admin/product/add"    : "ProductController.create",
-  "POST /admin/product/edit"   : "ProductController.edit",
-  "POST /admin/product/delete" : "ProductController.delete",
+  "POST /admin/product/add": "ProductController.create",
+  "POST /admin/product/edit": "ProductController.edit",
+  "POST /admin/product/delete": "ProductController.delete",
 
   //user CRUD routes
-  "POST /admin/user/add"   : "UserController.create",
-  "POST /admin/user/edit"  : "UserController.edit",
+  "POST /admin/user/add": "UserController.create",
+  "POST /admin/user/edit": "UserController.edit",
   "POST /admin/user/delete": "UserController.delete",
 
   //Cart CRUD routes
-  "GET /add-to-cart/:id"  : "CartController.add",
+  "GET /add-to-cart/:id": "CartController.add",
   "POST /update-cart-item": "CartController.update",
-  "GET /cart"             : "PageController.showCartPage",
-  "GET /remove-item/:id"  : "CartController.remove",
+  "GET /cart": "PageController.showCartPage",
+  "GET /remove-item/:id": "CartController.remove",
 
-  
-//Populate routes
-'GET /demo/populate': {
-  view: 'pages/demo/populate'
-},
-//post for populate
-'POST /demo/populatecofees'      : { action: 'populate/populatecoffeescontroller',csrf: false },
-'POST /demo/populatecategories'  : { action: 'populate/populatecategoriescontroller',csrf: false },
-'POST /demo/populateorders'      : { action: 'populate/populateorderscontroller',csrf: false },
-'POST /demo/populateorderdetails': { action: 'populate/populateorderdetailscontroller',csrf: false },
-
-
-
-
+  //Populate routes
+  "GET /demo/populate": {
+    view: "pages/demo/populate",
+  },
+  //post for populate
+  "POST /demo/populatecofees": {
+    action: "populate/populatecoffeescontroller",
+    csrf: false,
+  },
+  "POST /demo/populatecategories": {
+    action: "populate/populatecategoriescontroller",
+    csrf: false,
+  },
+  "POST /demo/populateorders": {
+    action: "populate/populateorderscontroller",
+    csrf: false,
+  },
+  "POST /demo/populateorderdetails": {
+    action: "populate/populateorderdetailscontroller",
+    csrf: false,
+  },
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗

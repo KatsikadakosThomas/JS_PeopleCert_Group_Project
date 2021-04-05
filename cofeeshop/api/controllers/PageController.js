@@ -6,16 +6,41 @@
  */
 
 module.exports = {
+  showShopPage: async function (req, res) {
+    const categories = await Categories.find();
+    const products = await Coffees.find();
+    const users = await User.find();
+    const message = req.session.success;
+    req.session.success = [];
+    return res.view("pages/demo/shop", {
+      categories: categories,
+      products: products,
+      users: users,
+      status: "notEmpty",
+      message: message,
+      layout: "layouts/new-layout",
+    });
+  },
+  contactUs: async function (req,res){
+    return res.view("pages/demo/contact-us",{
+      layout: "layouts/new-layout",
+    })
+  },
+  home: async function (req,res){
+    return res.view("pages/demo/homepage",{
+      layout: "layouts/new-layout",
+    })
+  },
   manageProducts: async function (req, res) {
     const categories = await Categories.find();
     const products = await Coffees.find();
     const message = req.session.success;
     req.session.success = [];
-    return res.view("pages/admin/manage_products", { 
-    categories: categories,
-    products:products,
-    status: "notEmpty",
-    message: message,
+    return res.view("pages/admin/manage_products", {
+      categories: categories,
+      products: products,
+      status: "notEmpty",
+      message: message,
     });
   },
   manageCategories: async function (req, res) {
@@ -44,7 +69,7 @@ module.exports = {
 
     //get all products
     let products = await Coffees.find();
-    let categories= await Categories.find();
+    let categories = await Categories.find();
 
     if (message != undefined && message.length != 0) {
       return res.view("pages/admin/index", {
@@ -64,11 +89,11 @@ module.exports = {
 
   showCartPage: function (req, res) {
     let cart = req.session.cart;
-   
+
     if (cart != undefined) {
-       items = cart.items;
+      items = cart.items;
     } else {
-       items = 0;
+      items = 0;
     }
 
     return res.view("pages/admin/cart", { items: items });

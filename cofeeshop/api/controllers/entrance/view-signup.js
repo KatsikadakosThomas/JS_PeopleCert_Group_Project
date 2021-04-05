@@ -7,6 +7,7 @@ module.exports = {
   description: 'Display "Signup" page.',
 
 
+
   exits: {
 
     success: {
@@ -27,7 +28,7 @@ module.exports = {
       throw {redirect: '/'};
     }
 
-    return {};
+    return {layout: "layouts/new-layout",};
 
   }
 

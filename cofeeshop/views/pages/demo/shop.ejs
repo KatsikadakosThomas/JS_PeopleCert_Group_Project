@@ -1,98 +1,110 @@
 <div class="shop-start-container">
-    <div class="e-shop_header">
-        <div class="header-left">
-            <img
-                src="/images/cyberCafeLogo.png"
-                alt="cyberCafeLogo"
-                width="140"
-                height="100"
-            />
-        </div>
-        <div class="header-right">
-            <div class="header-right-links">
-                <a href="./">Home</a>
-                <a href="#">Sign-Up</a>
-                <a href="#">Sign-In</a>
-                <a href="#">Shop</a>
-                <a href="#">Contact Us</a>
-            </div>
-        </div>
-        <div class="e-shop_header_text">
-            <h1>ONLINE SHOP</h1>
-            <h2>DELIVERY TO YOUR PLACE</h2>
-        </div>
+  <div class="e-shop_header">
+    <div class="header-left">
+      <img src="/images/cyberCafeLogo.png" alt="cyberCafeLogo" width="140" height="100" />
     </div>
-    <div class="container h-100">
-        <div class="row h-100 justify-content-center align-items-center" style="background-color: aqua;">
-            <p>hello there</p>
-        </div>
+    <div class="header-right">
+      <div class="header-right-links">
+        <a href="/demo/homepage">Home</a>
+        <a href="/signup">Sign-Up</a>
+        <a href="/login">Sign-In</a>
+        <a href="/demo/homepage/shop">Shop</a>
+        <a href="/demo/contact-us">Contact Us</a>
+    <a href="/cart"><i class="fa fa-shopping-cart"></i>
+          <% if (req.session.cart) { %>
+          <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
+          <% } %>
+        </a>
       </div>
-      <div class="container">
+    </div>
+    <div class="e-shop_header_text">
+      <h1>ONLINE SHOP</h1>
+      <h2>DELIVERY TO YOUR PLACE</h2>
+    </div>
+  </div>
+  <div class="container-fluid pl-5 pt-5">
+    <div class="row">
+      <div class="alert alert-success">
+        <i class="fa fa-info-circle" aria-hidden="true"></i> <%= message %>
+      </div>
+    </div>
+    <div class="container-fluid">
 
-        <!-- Jumbotron Header -->
-        <header class="jumbotron my-4">
-          <h1 class="display-3">A Warm Welcome!</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-          <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
-        </header>
-    
-        <!-- Page Features -->
-        <div class="row text-center">
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <h1 class="display-3">A Warm Welcome!</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
+          possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
+          repellat.</p>
+        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+      </header>
+
+      <!-- Page Features -->
+      <div class="row text-center">
+        <% let i = 0 %> <%products.forEach(function(product) { i++;%>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="/images/shop/cappuccino.jpg" alt="coffee">
+            <div class="card-body">
+              <h2 class="card-title" id="shop_card_product_name_<%=i%>>"><%=product.name%></h2>
+              <h2 class="card-title" id="shop_card_product_category_<%=i%>>"><%categories.forEach(function(category) { if(product.categoryID ===
+                category.id){%> <%=category.Name%> <%}})%></h2>
+              <p class="card-text" id="shop_card_product_desc_<%=i%>>">Description: <%=product.description%></p>
+              <h2 class="card-text bg-primary text-white" id="shop_card_product_price_<%=i%>>">
+                <%=product.price%>
+              </h2>
+            </div>
+            <div class="card-footer">
+              <% if (req.session.cart && 'item'+product.id in req.session.cart.items) { %>
+              <form action="/update-cart-item" method="post">
+                <input type="hidden" name="_csrf" value="<%= _csrf %>">
+                <div class="form-group">
+                  <select name="quantity">
+                    <option value="<%= req.session.cart.items['item'+product.id].qty %>" selected>
+                      <%= req.session.cart.items['item'+product.id].qty %>
+                    </option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <input type="hidden" name="productId" value="<%= product.id %>">
+                </div>
+
+                <button type="submit" class="btn btn-success">Update</button>
+              </form>
+
+              <% } else { %>
+
+              <a href="/add-to-cart/<%= product.id %>" class="btn btn-primary">Add to cart</a>
+              <% } %>
             </div>
           </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-    
-          <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card h-100">
-              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-primary">Find Out More!</a>
-              </div>
-            </div>
-          </div>
-    
         </div>
-        <!-- /.row -->
-    
-      </div>
+        <%})%>
+      <!-- /.row -->
+
+    </div>
+  </div>
+  </div>
 </div>
+  <script>
+    let layoutHeaderHome = document.querySelector('.header');
+    let documentFullHeight = document.documentElement.clientHeight;
+    window.onscroll = function () {
+        scrollFunction();
+    };
+    function scrollFunction() {
+        if (
+            document.body.scrollTop > 480 ||
+            document.documentElement.scrollTop > 480
+        ) {
+            layoutHeaderHome.style.display = 'block';
+            layoutHeaderHome.classList.remove("animate__fadeOutUp")
+            layoutHeaderHome.classList.add("animate__fadeInDown")
+        } else {
+            layoutHeaderHome.style.display = 'none';
+            layoutHeaderHome.classList.add("animate__fadeOutUp")
+            layoutHeaderHome.classList.remove("animate__fadeInDown")
+        }
+    }
+  </script>
+  
