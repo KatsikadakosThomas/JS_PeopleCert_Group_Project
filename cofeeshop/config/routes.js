@@ -44,7 +44,7 @@ module.exports.routes = {
   "GET /products": "PageController.index",
 
   //Admin pages
-  "GET /superadmin": {view:"superadmin"},// temporary page for test
+  // "GET /superadmin": {view:"superadmin"},// temporary page for test
   "GET /admin/products/manage" : "PageController.manageProducts",
   "GET /admin/users/manage"    : "PageController.manageUsers",
   "GET /admin/category/manage" : "PageController.manageCategories",
