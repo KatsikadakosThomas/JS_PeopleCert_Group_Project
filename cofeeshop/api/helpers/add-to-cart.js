@@ -37,10 +37,10 @@ module.exports = {
 
       items : {},
       totalQty: inputs.productQty,
-      totalPrice: product.price
-
+      totalPrice: product.price,
+  
     }
-
+    console.log(cart);
     //push the first product in the cart
 
     cart.items['item'+product.id] = {
