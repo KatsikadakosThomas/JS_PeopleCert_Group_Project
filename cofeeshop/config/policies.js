@@ -24,7 +24,7 @@ module.exports.policies = {
   
    //Super admin policies
 
-   PageController: { 
+  /*  PageController: { 
   
      "*":"is-super-admin",
      "index":true,
@@ -32,7 +32,7 @@ module.exports.policies = {
    },
 
    "dashboard/adminwelcome" : "is-super-admin",
-
+ */
 
 
 

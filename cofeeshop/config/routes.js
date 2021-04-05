@@ -8,13 +8,13 @@
  * https://sailsjs.com/anatomy/config/routes-js
  */
 
-module.exports.routes = {
+ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   "GET /": { action: "view-homepage-or-redirect" },
   "GET /welcome/:unused?": { action: "dashboard/view-welcome" },
-  "GET /adminwelcome/:unused?": {action: "dashboard/adminwelcome"},
+  "GET /adminwelcome": {action: "dashboard/adminwelcome"},
 
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
