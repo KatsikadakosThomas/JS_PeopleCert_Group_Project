@@ -28,6 +28,7 @@ module.exports.policies = {
   
      "*":"is-super-admin",
      "index":true,
+     "showShopPage": true,
      
    },
 
