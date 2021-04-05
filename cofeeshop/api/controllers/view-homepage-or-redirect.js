@@ -5,12 +5,7 @@ module.exports = {
 
 
   description: 'Display or redirect to the appropriate homepage, depending on login status.',
- 
-  inputs: {
-    isSuperAdmin: {
-      type: 'boolean', 
-    }
-  },
+
 
   exits: {
 
@@ -20,30 +15,27 @@ module.exports = {
       viewTemplatePath: 'pages/homepage'
     },
 
+    redirect: {
+      responseType: 'redirect',
+      description: 'Requesting user is logged in, so redirect to the internal welcome page.'
+    },
+
   },
 
 
   fn: async function () {
-    if (this.req.me) {
-      throw {redirect:'/welcome'};
+    //checks if super admin redirects to super admin home
+    if (this.req.me.isSuperAdmin==true) {
+      throw {redirect:'/superadmin'};
+    }else{
+      if(this.req.me){
+        throw {redirect:'/welcome'};
+      }
     }
+
     return {};
 
   }
+
+
 };
-// fn: async function () {
-//   //checks if super admin redirects to super admin home
-//   if (this.req.me.isSuperAdmin==true) {
-//     this.res.redirect('/superadmin');
-//   }else{
-//     if(this.req.me){
-//       this.res.redirect('/welcome');
-//     }
-//   }
-
-//   return {};
-
-// }
-
-
-// };
