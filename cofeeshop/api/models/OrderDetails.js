@@ -9,38 +9,9 @@ module.exports = {
 
   attributes: {
 
-
-    Price: {
-      type:'number',
-      required:true,
-      description: "the cost of the product",
-      example: 3
-    },
-    Quantity: {
-      type:'number',
-      required:true,
-      description: "the quantity of the product",
-      example: 2
-    },
-
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-    
-    Price: {
-      type:'number',
-      required:true,
-      description: "the cost of the product",
-      example: 3
-    },
-    Quantity: {
-      type:'number',
-      required:true,
-      description: "the quantity of the product",
-      example: 2
-    },
-
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
