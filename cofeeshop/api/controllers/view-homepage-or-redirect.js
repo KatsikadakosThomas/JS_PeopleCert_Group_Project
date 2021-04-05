@@ -25,7 +25,7 @@ module.exports = {
 
   fn: async function () {
     //checks if super admin redirects to super admin home
-    if (this.req.me.isSuperAdmin==true) {
+    if (this.req.me?.isSuperAdmin==true) {
       throw {redirect:'/superadmin'};
     }else{
       if(this.req.me){
