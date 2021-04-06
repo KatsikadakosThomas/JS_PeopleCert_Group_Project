@@ -19,17 +19,17 @@
 
 <div class="container">
   <div class="row">
-    <h4>Cart</h4>
+    <h2 class="cart">Cart</h2>
   </div>
   <div class="row">
     <div class="col-lg-8">
       <% if (items == 0 || items.totalQty == 0 ) { -%>
 
-      <h3>Sorry, no items in your cart</h3>
-      <a a href="./">Go back to home</a>
+      <p class="emtycart">Sorry, you got no items in your cart</p>
+      <a class="emtycart" a href="/demo/homepage/shop">Lets fix</a>
       <% } else { -%>
-
-      <table class="table table-borderless">
+        
+      <table class="table table-borderless" >
         <thead>
           <tr>
             <th>Item</th>
@@ -72,3 +72,44 @@
     </div>
   </div>
 </div>
+<style>
+
+.cart{
+  font-family: sans-serif;
+  padding-left:12px;
+  }
+
+  .emtycart{
+  font-family: sans-serif;
+  padding-left:12px;
+  font-size: 18px;
+
+
+  }
+
+table {
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+thead {
+    background-color:lightgray;
+   
+}
+
+tbody {
+    background-color: #e4f0f5;
+}
+
+
+td,th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+}
+
+
+
+
+</style>
