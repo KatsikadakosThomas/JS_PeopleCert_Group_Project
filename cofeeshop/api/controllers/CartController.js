@@ -62,7 +62,19 @@ module.exports = {
 
     return res.redirect('back')
 
+  },
+
+  checkout: async function(req,res){
+    let updateCart = await sails.helpers.updateCart(req);
+    console.log(updateCart);
+  return res.view('pages/payment/payment')
+
   }
+
+
+
+
+
 
 };
 
