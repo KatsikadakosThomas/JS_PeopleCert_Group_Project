@@ -26,25 +26,6 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-<<<<<<< Updated upstream
-
-    
-    Price: {
-      type:'number',
-      required:true,
-      description: "the cost of the product",
-      example: 3
-    },
-    Quantity: {
-      type:'number',
-      required:true,
-      description: "the quantity of the product",
-      example: 2
-    },
-
-
-=======
->>>>>>> Stashed changes
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
