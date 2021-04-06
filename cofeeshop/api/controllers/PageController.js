@@ -96,6 +96,9 @@ module.exports = {
       items = 0;
     }
 
-    return res.view("pages/admin/cart", { items: items });
+    return res.view("pages/demo/cart",{
+      layout: "layouts/new-layout",
+    },
+    { items: items });
   },
 };
