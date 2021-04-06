@@ -70,6 +70,7 @@ module.exports = {
       var updatedCart = currentCart
 
       //update the quantity
+      console.log('updated'+JSON.stringify(productid));
       updatedCart.items[productid].qty = qty
 
       //reset total price and qty
@@ -93,9 +94,9 @@ module.exports = {
     currentCart.totalPrice = currentCart.totalPrice + product.price * qty
 
     var updatedCart = currentCart
-
+    console.log('updated'+JSON.stringify(updatedCart));
     }
-
+    console.log('updated'+JSON.stringify(updatedCart));
     // All done. Return the updated cart.
     return exits.success(updatedCart);
 

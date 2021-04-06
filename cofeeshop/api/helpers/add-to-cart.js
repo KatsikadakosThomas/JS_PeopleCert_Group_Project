@@ -9,7 +9,7 @@ module.exports = {
 
   inputs: {
 
-    productId: {
+    coffeesId: {
       
       type: 'string',
       required: true
@@ -28,8 +28,8 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     //find the product
-    var product = await Coffees.findOne({ id: inputs.productId})
-
+    var product = await Coffees.findOne({ id: inputs.coffeesId})
+    console.log(`product is =${JSON.stringify(product)}`);
     
 
     //create the cart scaffolding
@@ -40,7 +40,7 @@ module.exports = {
       totalPrice: product.price,
   
     }
-    console.log(cart);
+    console.log(`cart is = ${JSON.stringify(cart)}`);
     //push the first product in the cart
 
     cart.items['item'+product.id] = {
