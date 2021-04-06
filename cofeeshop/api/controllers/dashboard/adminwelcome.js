@@ -10,7 +10,7 @@ module.exports = {
     exits: {
   
       success: {
-        viewTemplatePath: 'pages/dashboard/adminwelcome',
+        viewTemplatePath: 'pages/admin/adminwelcome',
         description: 'Display the welcome page for admins'
       },
   
@@ -19,7 +19,7 @@ module.exports = {
   
     fn: async function () {
   
-      return {};
+      return {layout:"layouts/admin-layout"};
   
     }
   
