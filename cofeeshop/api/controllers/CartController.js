@@ -65,10 +65,10 @@ module.exports = {
   },
 
   checkout: async function(req,res){
-    // let updatedCart = await sails.helpers.updateCart(req);
+
        let order=req.session.cart
        let user=req.me
-      let ordersQuerry= await Orders.create({totalPrice:`${order.totalPrice}`, userID:`${user.id}`}).fetch()
+       const ordersQuerry= await Orders.create({totalPrice:`${order.totalPrice}`, userID:`${user.id}`}).fetch();
     console.log(ordersQuerry);
   return res.view('pages/payment/payment')
 
