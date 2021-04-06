@@ -95,7 +95,7 @@ module.exports = {
     var updatedCart = currentCart
 
     }
-
+    console.log("updated cart"+ JSON.stringify(updatedCart,null,"  "));
     // All done. Return the updated cart.
     return exits.success(updatedCart);
 
