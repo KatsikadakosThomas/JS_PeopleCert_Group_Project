@@ -65,8 +65,10 @@ module.exports = {
   },
 
   checkout: async function(req,res){
-    let updateCart = await sails.helpers.updateCart(req);
-    console.log(updateCart);
+    // let updatedCart = await sails.helpers.updateCart(req);
+       let order=req.session.cart
+      let ordersQuerry= await Orders.create({totalPrice:`${order.totalPrice}`, userID:`${req.session.user.id}`}).fetch()
+    console.log(ordersQuerry);
   return res.view('pages/payment/payment')
 
   }
