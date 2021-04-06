@@ -20,13 +20,11 @@ module.exports = {
 
         DateOfPayment: {
             type: 'string',
-            required: true,
             description: 'payment date',
         },
 
         isPaid: {
             type: 'boolean',
-            required: true,
             description: 'if payment is completed',
         },
 
