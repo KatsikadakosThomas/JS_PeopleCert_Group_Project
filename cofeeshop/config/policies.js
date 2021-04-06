@@ -24,15 +24,19 @@ module.exports.policies = {
   
    //Super admin policies
 
-  /*  PageController: { 
+   PageController: { 
   
      "*":"is-super-admin",
      "index":true,
+     "showShopPage": true,
+     "home":true,
+     "contactUs":true,
+     "showCartPage":true,
      
    },
 
    "dashboard/adminwelcome" : "is-super-admin",
- */
+ 
 
 
 
