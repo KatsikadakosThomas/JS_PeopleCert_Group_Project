@@ -94,9 +94,9 @@ module.exports = {
     currentCart.totalPrice = currentCart.totalPrice + product.price * qty
 
     var updatedCart = currentCart
-    console.log('updated'+JSON.stringify(updatedCart));
+    // console.log('updated'+JSON.stringify(updatedCart));
     }
-
+    // console.log("updated cart"+ JSON.stringify(updatedCart,null,"  "));
     // All done. Return the updated cart.
     return exits.success(updatedCart);
 
