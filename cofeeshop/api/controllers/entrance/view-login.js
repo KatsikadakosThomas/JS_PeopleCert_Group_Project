@@ -27,7 +27,6 @@ module.exports = {
       throw {redirect: '/'};
     }
 
-    return {layout: "layouts/new-layout",};
 
   }
 
