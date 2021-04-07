@@ -18,14 +18,17 @@ module.exports = {
       users: users,
       status: "notEmpty",
       message: message,
+      layout: "layouts/new-layout",
     });
   },
   contactUs: async function (req,res){
     return res.view("pages/demo/contact-us",{
+      layout: "layouts/new-layout",
     })
   },
   home: async function (req,res){
     return res.view("pages/demo/homepage",{
+      layout: "layouts/new-layout",
     })
   },
   manageProducts: async function (req, res) {
@@ -38,7 +41,6 @@ module.exports = {
       products: products,
       status: "notEmpty",
       message: message,
-      layout: "layouts/admin-layout"
     });
   },
   manageCategories: async function (req, res) {
@@ -49,7 +51,6 @@ module.exports = {
       categories: categories,
       status: "notEmpty",
       message: message,
-      layout: "layouts/admin-layout"
     });
   },
   manageUsers: async function (req, res) {
@@ -60,32 +61,31 @@ module.exports = {
       users: users,
       status: "notEmpty",
       message: message,
-      layout: "layouts/admin-layout"
     });
   },
-  // index: async function (req, res) {
-  //   const message = req.session.success;
-  //   req.session.success = [];
+  index: async function (req, res) {
+    const message = req.session.success;
+    req.session.success = [];
 
-  //   //get all products
-  //   let products = await Coffees.find();
-  //   let categories = await Categories.find();
+    //get all products
+    let products = await Coffees.find();
+    let categories = await Categories.find();
 
-  //   if (message != undefined && message.length != 0) {
-  //     return res.view("pages/admin/index", {
-  //       status: "notEmpty",
-  //       message: message,
-  //       products: products,
-  //       categories: categories,
-  //     });
-  //   }
+    if (message != undefined && message.length != 0) {
+      return res.view("pages/admin/index", {
+        status: "notEmpty",
+        message: message,
+        products: products,
+        categories: categories,
+      });
+    }
 
-  //   return res.view("pages/admin/index", {
-  //     status: "empty",
-  //     products: products,
-  //     categories: categories,
-  //   });
-  // },
+    return res.view("pages/admin/index", {
+      status: "empty",
+      products: products,
+      categories: categories,
+    });
+  },
 
   showCartPage: function (req, res) {
     let cart = req.session.cart;
@@ -96,6 +96,6 @@ module.exports = {
       items = 0;
     }
 
-    return res.view("pages/demo/cart", { items: items });
+    return res.view("pages/admin/cart", { items: items });
   },
 };

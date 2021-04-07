@@ -1,7 +1,7 @@
 <div class="shop-start-container">
   <div class="e-shop_header">
     <div class="header-left">
-      <img src="/images/h1-slider-img-1.png" alt="cyberCafeLogo" width="140" height="100" />
+      <img src="/images/cyberCafeLogo.png" alt="cyberCafeLogo" width="140" height="100" />
     </div>
     <div class="header-right">
       <div class="header-right-links">
@@ -10,7 +10,6 @@
         <a href="/login">Sign-In</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout">Logout</a>
     <a href="/cart"><i class="fa fa-shopping-cart"></i>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
@@ -37,31 +36,23 @@
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
           possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
           repellat.</p>
-          <button class="btn btn-primary btn-lg filter_button" id="all_filter" disabled = "disabled">Show All</button>
-        <button class="btn btn-primary btn-lg filter_button" id="hot_filter">Show Hot Only</button>
-        <button class="btn btn-primary btn-lg filter_button" id="cold_filter">Show Cold Only</button>
-        <br><br>
-        <label for="minimum_price">Min:</label>
-        <input type="number" min="0.1" max="100" step="0.1" name="minimum_price" id="min_price">
-        <label for="maximum_price">Max:</label>
-        <input type="number" min="0.1" max="100" step="0.1" name="maximum_price" id="max_price">
-        <button class="btn btn-primary btn-lg" id="show_selected_prices_button">Show Selected Prices Only</button>
+        <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
       </header>
 
       <!-- Page Features -->
       <div class="row text-center">
         <% let i = 0 %> <%products.forEach(function(product) { i++;%>
-        <div class=" col-lg-3 col-md-6 col-sm-12 mb-4 shop_card" id="shop_card_<%=i%>">
+        <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
             <img class="card-img-top" src="/images/shop/cappuccino.jpg" alt="coffee">
-            <div class="card-body shop_card_product_name">
-              <h2 class="card-title shop_card_product_name" id="shop_card_product_name_<%=i%>"><%=product.name%></h2>
-              <h2 class="card-title shop_card_product_category" id="shop_card_product_category_<%=i%>"><%categories.forEach(function(category) { if(product.categoryID ===
+            <div class="card-body">
+              <h2 class="card-title" id="shop_card_product_name_<%=i%>>"><%=product.name%></h2>
+              <h2 class="card-title" id="shop_card_product_category_<%=i%>>"><%categories.forEach(function(category) { if(product.categoryID ===
                 category.id){%> <%=category.Name%> <%}})%></h2>
-                <h2 class="card-text bg-primary text-white shop_card_product_price" id="shop_card_product_price_<%=i%>">
-                  <%=product.price%> €
-                </h2>
-              <p class="card-text shop_card_product_desc" id="shop_card_product_desc_<%=i%>">Description: <%=product.description%></p>
+              <p class="card-text" id="shop_card_product_desc_<%=i%>>">Description: <%=product.description%></p>
+              <h2 class="card-text bg-primary text-white" id="shop_card_product_price_<%=i%>>">
+                <%=product.price%>
+              </h2>
             </div>
             <div class="card-footer">
               <% if (req.session.cart && 'item'+product.id in req.session.cart.items) { %>
@@ -115,77 +106,5 @@
             layoutHeaderHome.classList.remove("animate__fadeInDown")
         }
     }
-    let shopProductNames = document.querySelectorAll(".shop_card_product_name");
-    let shopProductCategory = document.querySelectorAll(".shop_card_product_category");
-    let shopProductPrice = document.querySelectorAll(".shop_card_product_price");
-    let shopProductCard = document.querySelectorAll(".shop_card")
-    let allFiltersButtons = document.querySelectorAll(".filter_button")
-    let showAllFilterButton = document.querySelector("#all_filter");
-    let hotFilterButton = document.querySelector("#hot_filter");
-    let coldFilterButton = document.querySelector("#cold_filter");
-    let maximumPriceInput = document.getElementById("max_price")
-    let minimumPriceInput = document.getElementById("min_price")
-    let priceButton = document.getElementById("show_selected_prices_button")
-    function reenableRestOfButtons(params) {
-      allFiltersButtons.forEach(function(button){
-        if (button.id !== params) {
-        button.disabled = false;
-      }
-      })
-    }
-    async function showAllCards() {
-      shopProductCard.forEach(function (card) {
-        if (card.style.display === 'none'){
-        card.style.transition = 'opacity 1s'
-        setTimeout(() => {
-          card.style.opacity = '1'
-        }, 1000);
-        card.style.display = 'block';
-        }
-      })
-    }
-    async function hideRestOfCards(params) {
-      shopProductCategory.forEach(function (category) {
-        if (category.innerText !== params) {
-          setTimeout(() => {
-            category.parentElement.parentElement.parentElement.style.display = 'none';
-          }, 1000);
-          category.parentElement.parentElement.parentElement.style.transition = 'opacity 1s'
-          category.parentElement.parentElement.parentElement.style.opacity = '0'
-        }
-      })
-    }
-    showAllFilterButton.addEventListener("click", function(){
-      showAllCards()
-      showAllFilterButton.disabled = true
-      reenableRestOfButtons(showAllFilterButton.id)
-    })
-    coldFilterButton.addEventListener("click", function(){
-      showAllCards();
-      coldFilterButton.disabled = true
-      reenableRestOfButtons(coldFilterButton.id)
-      hideRestOfCards("cold")
-    })
-    hotFilterButton.addEventListener("click", function(){
-      showAllCards();
-      hotFilterButton.disabled = true
-      reenableRestOfButtons(hotFilterButton.id)
-      hideRestOfCards("Hot")
-    })
-    priceButton.addEventListener("click", function(){
-      showAllCards();
-      shopProductPrice.forEach(function(price){
-        let priceWithoutEuroSymbol = price.innerText.slice(0, -2);
-        if (maximumPriceInput.value > minimumPriceInput.value){
-        if ((priceWithoutEuroSymbol>=minimumPriceInput.value) && (priceWithoutEuroSymbol<= maximumPriceInput.value)) {
-      }else{
-        price.parentElement.parentElement.parentElement.style.display = 'none';
-      }}else{
-        minimumPriceInput.value = 1;
-        maximumPriceInput.value = 2;
-        alert("Minimum price needs to be smaller than maximum price.")
-      }
-    })
-  })
   </script>
   

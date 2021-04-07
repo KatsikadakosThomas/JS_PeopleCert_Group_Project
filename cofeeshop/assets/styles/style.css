@@ -1,4 +1,4 @@
-/* div {
+div {
     cursor: url('/images/cursors/brown_pointer.png'), auto !important;
 }
 
@@ -6,13 +6,13 @@ a,
 button {
     cursor: url('/images/cursors/brown_hand.png'), auto !important;
 }
- */
+
 .header {
     width: 100%;
-    /* height: 100px; */
-    background-color: rgba(128, 128, 128, 0.774);
+    height: 100px;
+    background-color: rgba(128, 128, 128, 0.5);
     position: sticky;
-    /* color: white; */
+    color: white;
     z-index: 10;
     top: 0;
     display: none;
@@ -37,8 +37,8 @@ button {
 }
 .header-right-links a {
     color: white;
-    font-size: 1rem;
-    margin: 4px;
+    font-size: larger;
+    margin: 10px;
 }
 footer {
     text-align: center;
@@ -58,14 +58,14 @@ footer {
 }
 
 .homepage-start-container {
-    background-color: black;
     width: 100%;
     height: 100%;
 }
 
 .carousel-images {
-    min-width: 1920px;
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 .caption0 {
@@ -80,13 +80,6 @@ footer {
     right: -40%;
 }
 
-.large-text-navbar{
-    font-weight: bolder;
-    font-size: 1.5rem;
-}
-.large-text-navbar li a{
-    color: red;
-}
 .caption1 img {
     margin: auto;
 }
@@ -162,7 +155,7 @@ footer {
     margin: auto;
     padding: 5px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 24px;
     word-wrap: break-word;
     color: black;
 }
@@ -171,7 +164,6 @@ footer {
     width: 100%;
     height: 704px;
     margin: auto;
-    margin-bottom: 0;
     background-image: url('/images/footer-top-img-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;

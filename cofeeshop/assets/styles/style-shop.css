@@ -15,13 +15,3 @@
     color: white;
     padding-top: 250px;
 }
-button:disabled {
-    cursor: not-allowed;
-    pointer-events: all !important;
-  }
-  #max_price{
-      width: 60px;
-  }
-  #min_price{
-      width: 60px;
-  }

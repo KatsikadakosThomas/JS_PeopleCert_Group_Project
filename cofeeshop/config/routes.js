@@ -14,7 +14,7 @@
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   "GET /": { action: "view-homepage-or-redirect" },
   "GET /welcome/:unused?": { action: "dashboard/view-welcome" },
-  "GET /admin/adminwelcome": {action: "dashboard/adminwelcome"},
+  "GET /adminwelcome": {action: "dashboard/adminwelcome"},
 
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
@@ -38,6 +38,7 @@
   // Contact us page
   "GET /demo/contact-us": "PageController.contactUs",
   //Shop page
+  "GET /products": "PageController.index",
   "GET /demo/homepage/shop": "PageController.showShopPage",
   //Admin pages
   "GET /admin/products/manage": "PageController.manageProducts",
@@ -60,6 +61,7 @@
   "POST /admin/user/delete": "UserController.delete",
 
   //Cart CRUD routes
+  "GET /checkout": "CartController.checkout",
   "GET /add-to-cart/:id": "CartController.add",
   "POST /update-cart-item": "CartController.update",
   "GET /cart": "PageController.showCartPage",
