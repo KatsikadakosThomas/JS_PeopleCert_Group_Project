@@ -60,6 +60,7 @@
   "POST /admin/user/delete": "UserController.delete",
 
   //Cart CRUD routes
+  "GET /checkout": "CartController.checkout",
   "GET /add-to-cart/:id": "CartController.add",
   "POST /update-cart-item": "CartController.update",
   "GET /cart": "PageController.showCartPage",
