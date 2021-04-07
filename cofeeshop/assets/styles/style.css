@@ -58,14 +58,14 @@ footer {
 }
 
 .homepage-start-container {
+    background-color: black;
     width: 100%;
     height: 100%;
 }
 
 .carousel-images {
-    width: 100%;
+    min-width: 1920px;
     height: 100vh;
-    overflow: hidden;
 }
 
 .caption0 {
