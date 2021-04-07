@@ -44,7 +44,7 @@
     <div purpose="page-wrap">
       <nav class="navbar navbar-expand-lg mb-4 header animate__animated animate__fadeInDown">
         <div class="container">
-          <img src="/images/cyberCafeLogo.png" alt="cyberCafeLogo" width="140" height="100" class="animate__animated animate__fadeInLeft" />
+          <img src="/images/h1-slider-img-1.png" alt="cyberCafeLogo" width="140" height="100" class="animate__animated animate__fadeInLeft" />
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa fa-bars fa-5x animate__animated animate__fadeInRight" aria-hidden="true"></i>
           </button>
@@ -82,16 +82,27 @@
         </div>
       </nav>
       <%- body %>
-      <footer class="navbar navbar-light justify-content-between flex-row-reverse" purpose="page-footer">
-        <div class="nav" purpose="footer-nav">
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/contact">Contact<span class="d-none d-sm-inline"> us</span></a></small>
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/legal/terms">Terms<span class="d-none d-sm-inline"> of use</span></a></small>
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/legal/privacy">Privacy<span class="d-none d-sm-inline"> policy</span></a></small>
-          <% if(me) { %>
-          <small class="nav-item d-inline-block"><a class="nav-link text-info px-1 px-sm-3" href="/logout">Sign out</a></small>
-          <% } %>
+      <div class="home-footer-top">
+        <div class="home-footer-top-content">
+          <img src="/images/h1-slider-img-1.png" alt="h1-slider-img-1" />
+          <p>
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor <br />
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, <br />
+            nostrud exercitation ullamco laboris.”
+          </p>
+          <br />
+          <br />
+          <h2>Stores</h2>
+          <p>
+            Dunsmuir Ave, Los Angeles, CA 90036, USA <br />
+            Atkins Ave, Brooklyn, NY 11208, USA
+          </p>
         </div>
-        <small purpose="footer-copy">Copyright &copy; <%= sails.config.custom.platformCopyrightYear %> <a target="_blank" href="NEW_APP_COMPANY_ABOUT_HREF">NEW_APP_COMPANY_NAME</a>. <br class="d-block d-sm-none"/>All rights reserved.</small>
+      </div>
+      <footer class="navbar navbar-light justify-content-between flex-row-reverse" purpose="page-footer">
+        <small purpose="footer-copy">Copyright &copy; 2021 <a href="/demo/homepage">RetroBrand</a>. <br class="d-block d-sm-none"/>All rights reserved. Created by Thomas Katsikadakos, Fanis Kolokythas and Fanoyrios Gkialis</small>
       </footer>
     </div>
     <% /* Client-side JavaScript ======================== Scripts can be
