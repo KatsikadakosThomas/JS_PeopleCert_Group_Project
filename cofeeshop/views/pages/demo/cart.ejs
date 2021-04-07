@@ -8,9 +8,13 @@
         <a href="/demo/homepage">Home</a>
         <a href="/signup">Sign-Up</a>
         <a href="/login">Sign-In</a>
+        <a href="/logout">Logout</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-    <a href="/cart"><i class="fa fa-shopping-cart"></i>
+        <a href="/cart"><i class="fa fa-shopping-cart"></i>
+          <% if (req.session.cart) { %>
+          <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
+          <% } %>
     </a>
     </div>
   </div>
@@ -72,3 +76,24 @@
     </div>
   </div>
 </div>
+<script>
+      let layoutHeaderHome = document.querySelector('.header');
+    let documentFullHeight = document.documentElement.clientHeight;
+    window.onscroll = function () {
+        scrollFunction();
+    };
+    function scrollFunction() {
+        if (
+            document.body.scrollTop > 480 ||
+            document.documentElement.scrollTop > 480
+        ) {
+            layoutHeaderHome.style.display = 'block';
+            layoutHeaderHome.classList.remove("animate__fadeOutUp")
+            layoutHeaderHome.classList.add("animate__fadeInDown")
+        } else {
+            layoutHeaderHome.style.display = 'none';
+            layoutHeaderHome.classList.add("animate__fadeOutUp")
+            layoutHeaderHome.classList.remove("animate__fadeInDown")
+        }
+    }
+</script> 
