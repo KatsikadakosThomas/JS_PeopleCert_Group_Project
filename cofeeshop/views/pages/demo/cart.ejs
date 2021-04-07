@@ -1,21 +1,17 @@
 <div class="cart_start_container">
   <div class="contact_header">
     <div class="header-left">
-      <img src="/images/h1-slider-img-1.png" alt="cyberCafeLogo" width="140" height="100" />
+      <img src="/images/cyberCafeLogo.png" alt="cyberCafeLogo" width="140" height="100" />
     </div>
     <div class="header-right">
       <div class="header-right-links">
         <a href="/demo/homepage">Home</a>
         <a href="/signup">Sign-Up</a>
         <a href="/login">Sign-In</a>
-        <a href="/logout">Logout</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
     <a href="/cart"><i class="fa fa-shopping-cart"></i>
-          <% if (req.session.cart) { %>
-          <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
-          <% } %>
-        </a>
+    </a>
     </div>
   </div>
  </div>
@@ -34,19 +30,19 @@
       <% } else { -%>
         
       <table class="table table-borderless" >
-        <thead>
+        <thead class="cartthead">
           <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th class="carttd">Item</th>
+            <th class="carttd">Quantity</th>
+            <th class="carttd">Price</th>
             <th></th>
           </tr>
-        </thead>
-        <tbody>
+        </thead class="cartthead">
+        <tbody class="carttbody">
           <% Object.keys(items).forEach( function(item) { %>
           <tr>
-            <td><%= items[item].product.name %></td>
-            <td>
+            <td class="carttd"><%= items[item].product.name %></td>
+            <td class="carttd">
               <form action="/update-cart-item" method="post">
                 <input type="hidden" name="_csrf" value="<%= _csrf %>" />
                 <select name="quantity">
@@ -76,24 +72,3 @@
     </div>
   </div>
 </div>
-<script>
-      let layoutHeaderHome = document.querySelector('.header');
-    let documentFullHeight = document.documentElement.clientHeight;
-    window.onscroll = function () {
-        scrollFunction();
-    };
-    function scrollFunction() {
-        if (
-            document.body.scrollTop > 480 ||
-            document.documentElement.scrollTop > 480
-        ) {
-            layoutHeaderHome.style.display = 'block';
-            layoutHeaderHome.classList.remove("animate__fadeOutUp")
-            layoutHeaderHome.classList.add("animate__fadeInDown")
-        } else {
-            layoutHeaderHome.style.display = 'none';
-            layoutHeaderHome.classList.add("animate__fadeOutUp")
-            layoutHeaderHome.classList.remove("animate__fadeInDown")
-        }
-    }
-</script>
