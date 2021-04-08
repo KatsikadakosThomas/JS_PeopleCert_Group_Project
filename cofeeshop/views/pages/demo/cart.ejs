@@ -6,12 +6,13 @@
     <div class="header-right">
       <div class="header-right-links cart-header-right-links">
         <a href="/demo/homepage">Home</a>
-        <a href="/signup">Sign-Up</a>
-        <a href="/login">Sign-In</a>
-        <a href="/logout">Logout</a>
+        <a href="/signup" class="sign-up-link">Sign-Up</a>
+        <a href="/login" class="log-in-link">Sign-In</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-        <a href="/cart"><i class="fa fa-shopping-cart"></i>
+        <a href="/logout" class="logout-link">Logout</a>
+        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
           <% } %>
@@ -78,22 +79,7 @@
 </div>
 <script>
       let layoutHeaderHome = document.querySelector('.header');
-    let documentFullHeight = document.documentElement.clientHeight;
     window.onscroll = function () {
         scrollFunction();
     };
-    function scrollFunction() {
-        if (
-            document.body.scrollTop > 480 ||
-            document.documentElement.scrollTop > 480
-        ) {
-            layoutHeaderHome.style.display = 'block';
-            layoutHeaderHome.classList.remove("animate__fadeOutUp")
-            layoutHeaderHome.classList.add("animate__fadeInDown")
-        } else {
-            layoutHeaderHome.style.display = 'none';
-            layoutHeaderHome.classList.add("animate__fadeOutUp")
-            layoutHeaderHome.classList.remove("animate__fadeInDown")
-        }
-    }
 </script> 
