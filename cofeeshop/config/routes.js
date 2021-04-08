@@ -15,6 +15,7 @@
   "GET /": { action: "view-homepage-or-redirect" },
   "GET /welcome/:unused?": { action: "dashboard/view-welcome" },
   "GET /admin/adminwelcome": {action: "dashboard/adminwelcome"},
+  "GET /payment": { action: "demo/payment" },
 
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
