@@ -5,19 +5,26 @@
     </div>
     <div class="header-right">
       <div class="header-right-links cart-header-right-links">
-        <a href="/demo/homepage">Home</a>
-        <a href="/signup" class="sign-up-link">Sign-Up</a>
-        <a href="/login" class="log-in-link">Sign-In</a>
-        <a href="/demo/homepage/shop">Shop</a>
-        <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout" class="logout-link">Logout</a>
-        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
-    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
+        <a href="/demo/homepage" style="color: red; font-size: 2rem;">Home</a>
+        <a href="/signup" class="sign-up-link" style="color: red; font-size: 2rem;">Sign-Up</a>
+        <a href="/login" class="log-in-link" style="color: red; font-size: 2rem;">Sign-In</a>
+        <a href="/demo/homepage/shop" style="color: red; font-size: 2rem;">Shop</a>
+        <a href="/demo/contact-us" style="color: red; font-size: 2rem;">Contact Us</a>
+        <a href="/logout" class="logout-link" style="color: red; font-size: 2rem;">Logout</a>
+        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account" style="color: red; font-size: 2rem;"></i></a>
+    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart" style="color: red; font-size: 2rem;"></i>
+          <% if (req.session.cart) { %>
+          <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
+          <% } %>
+    </a>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
           <% } %>
     </a>
     </div>
+  </div>
+  <div class="cart_header_text">
+    <h1>CART</h1>
   </div>
  </div>
 </div>

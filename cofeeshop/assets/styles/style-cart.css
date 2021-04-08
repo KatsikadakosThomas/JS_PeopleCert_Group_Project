@@ -26,6 +26,11 @@
   background-position: center;
   background-size: cover;
 }
+.cart_header_text {
+  text-align: center;
+  color: black;
+  padding-top: 250px;
+}
 
 
 .cartthead {
