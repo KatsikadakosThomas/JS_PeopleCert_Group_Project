@@ -29,7 +29,7 @@ module.exports = {
       throw {redirect:'/admin/adminwelcome'};
     }else{
       if(this.req.me){
-        throw {redirect:'demo/homepage'};
+        throw {redirect:'/demo/homepage'};
       }
     }
 
