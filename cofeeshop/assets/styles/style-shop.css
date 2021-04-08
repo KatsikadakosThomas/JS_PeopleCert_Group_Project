@@ -7,9 +7,9 @@
     height: 480px;
     background-image: url('/images/shop/shop.jpg');
     background-repeat: no-repeat;
-    background-clip: content-box;
-    background-size: 100% 100%;
-}
+    background-position: center;
+    background-size: cover;
+  }
 .e-shop_header_text {
     text-align: center;
     color: white;
@@ -24,4 +24,11 @@ button:disabled {
   }
   #min_price{
       width: 60px;
+  }
+  .header-right-shop a{
+      color: red!important;
+      font-size: 1.5rem;
+  }
+  .header-left-shop img{
+      margin-left: 50px;
   }
