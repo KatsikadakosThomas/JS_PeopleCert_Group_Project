@@ -1,5 +1,3 @@
-const cart =  require("../CartController");
-
 module.exports = {
 
 
