@@ -27,7 +27,6 @@ module.exports.policies = {
   PageController: { 
   
      "*":"is-super-admin",
-     "index":true,
      "showShopPage": true,
      "home":true,
      "contactUs":true,

@@ -17,6 +17,7 @@
   "GET /admin/adminwelcome": {action: "dashboard/adminwelcome"},
   "GET /payment": { action: "demo/payment" },
 
+
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
   "GET /legal/privacy": { action: "legal/view-privacy" },
@@ -68,6 +69,7 @@
   "POST /update-cart-item": "CartController.update",
   "GET /cart": "PageController.showCartPage",
   "GET /remove-item/:id": "CartController.remove",
+  "GET /payment": { action: "demo/payment" },
 
   //Populate routes
   "GET /demo/populate": {

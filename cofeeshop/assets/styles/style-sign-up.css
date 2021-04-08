@@ -2,14 +2,20 @@
     width: 100%;
     height: 100%;
 }
+.header-left-signup{
+    margin-left: 60px;
+}
 .signup_header {
     width: 100%;
     height: 480px;
-    background-image: url('/images/contact_us/p3-title-img-1.jpg');
+    background-image: url('/images/Sign_up/sign_up_main.jpg');
     background-repeat: no-repeat;
-    background-clip: content-box;
-    background-size: 100% 100%;
-}
+    background-position: center;
+    background-size: cover;
+  }
+  .header-right-links-sign-up a{
+      color: red;
+  }
 .signup_header_text {
     text-align: center;
     color: white;

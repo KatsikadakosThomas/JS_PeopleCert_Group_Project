@@ -1,16 +1,18 @@
 <div class="contact_start_container">
   <div class="contact_header">
     <div class="header-left">
-      <img src="/images/h1-slider-img-1.png" alt="cyberCafeLogo" width="140" height="100" />
+      <img src="/images/layout/main_logo.png" alt="cyberCafeLogo" width="140" height="100" />
     </div>
     <div class="header-right">
       <div class="header-right-links">
         <a href="/demo/homepage">Home</a>
-        <a href="/signup">Sign-Up</a>
-        <a href="/login">Sign-In</a>
+        <a href="/signup" class="sign-up-link">Sign-Up</a>
+        <a href="/login" class="log-in-link">Sign-In</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-    <a href="/cart"><i class="fa fa-shopping-cart"></i>
+        <a href="/logout" class="logout-link">Logout</a>
+        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
           <% } %>
@@ -128,3 +130,9 @@
     </dir>
   </div>
       </div>
+      <script>
+            let layoutHeaderHome = document.querySelector('.header');
+    window.onscroll = function () {
+        scrollFunction();
+    };
+      </script>

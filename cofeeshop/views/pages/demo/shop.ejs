@@ -1,17 +1,18 @@
 <div class="shop-start-container">
   <div class="e-shop_header">
-    <div class="header-left">
-      <img src="/images/h1-slider-img-1.png" alt="cyberCafeLogo" width="140" height="100" />
+    <div class="header-left header-left-shop">
+      <img src="/images/layout/main_logo.png" alt="cyberCafeLogo" width="140" height="100" />
     </div>
     <div class="header-right">
-      <div class="header-right-links">
+      <div class="header-right-links header-right-shop">
         <a href="/demo/homepage">Home</a>
-        <a href="/signup">Sign-Up</a>
-        <a href="/login">Sign-In</a>
+        <a href="/signup" class="sign-up-link">Sign-Up</a>
+        <a href="/login" class="log-in-link">Sign-In</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout">Logout</a>
-    <a href="/cart"><i class="fa fa-shopping-cart"></i>
+        <a href="/logout" class="logout-link">Logout</a>
+        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
           <% } %>
@@ -68,13 +69,15 @@
               <form action="/update-cart-item" method="post">
                 <input type="hidden" name="_csrf" value="<%= _csrf %>">
                 <div class="form-group">
-                  <select name="quantity">
+                  <!-- <select name="quantity">
                     <option value="<%= req.session.cart.items['item'+product.id].qty %>" selected>
                       <%= req.session.cart.items['item'+product.id].qty %>
                     </option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                  </select>
+                  </select> -->
+                  <label for="quantity">Quantity: </label>
+                  <input type="number" name="quantity" value="<%= req.session.cart.items['item'+product.id].qty %>" step="1" min="1" max="20" style="width: 60px;">
                   <input type="hidden" name="productId" value="<%= product.id %>">
                 </div>
 
@@ -97,24 +100,9 @@
 </div>
   <script>
     let layoutHeaderHome = document.querySelector('.header');
-    let documentFullHeight = document.documentElement.clientHeight;
     window.onscroll = function () {
         scrollFunction();
     };
-    function scrollFunction() {
-        if (
-            document.body.scrollTop > 480 ||
-            document.documentElement.scrollTop > 480
-        ) {
-            layoutHeaderHome.style.display = 'block';
-            layoutHeaderHome.classList.remove("animate__fadeOutUp")
-            layoutHeaderHome.classList.add("animate__fadeInDown")
-        } else {
-            layoutHeaderHome.style.display = 'none';
-            layoutHeaderHome.classList.add("animate__fadeOutUp")
-            layoutHeaderHome.classList.remove("animate__fadeInDown")
-        }
-    }
     let shopProductNames = document.querySelectorAll(".shop_card_product_name");
     let shopProductCategory = document.querySelectorAll(".shop_card_product_category");
     let shopProductPrice = document.querySelectorAll(".shop_card_product_price");

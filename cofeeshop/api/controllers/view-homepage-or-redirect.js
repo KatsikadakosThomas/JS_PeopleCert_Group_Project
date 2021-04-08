@@ -12,7 +12,7 @@ module.exports = {
     success: {
       statusCode: 200,
       description: 'Requesting user is a guest, so show the public landing page.',
-      viewTemplatePath: 'pages/homepage'
+      viewTemplatePath: 'pages/demo/homepage'
     },
 
     redirect: {
@@ -29,7 +29,7 @@ module.exports = {
       throw {redirect:'/admin/adminwelcome'};
     }else{
       if(this.req.me){
-        throw {redirect:'demo/homepage'};
+        throw {redirect:'/demo/homepage'};
       }
     }
 
