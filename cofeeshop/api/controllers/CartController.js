@@ -64,15 +64,5 @@ module.exports = {
 
   },
 
-  checkout: async function(req,res){
-
-       let order=req.session.cart
-       let user=req.me
-       const ordersQuerry= await Orders.create({totalPrice:`${order.totalPrice}`, userID:`${user.id}`}).fetch();
-    console.log(ordersQuerry);
-  return res.view('pages/payment/payment')
-
-  }
-
 };
 
