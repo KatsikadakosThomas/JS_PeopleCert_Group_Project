@@ -14,7 +14,7 @@
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   "GET /": { action: "view-homepage-or-redirect" },
   "GET /welcome/:unused?": { action: "dashboard/view-welcome" },
-  "GET /adminwelcome": {action: "dashboard/adminwelcome"},
+  "GET /admin/adminwelcome": {action: "dashboard/adminwelcome"},
 
   "GET /faq": { action: "view-faq" },
   "GET /legal/terms": { action: "legal/view-terms" },
