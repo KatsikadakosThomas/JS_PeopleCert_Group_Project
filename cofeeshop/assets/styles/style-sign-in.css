@@ -7,9 +7,9 @@
     height: 480px;
     background-image: url('/images/Sign_in/sign_in_main.jpg');
     background-repeat: no-repeat;
-    background-clip: content-box;
-    background-size: 100% 100%;
-}
+    background-position: center;
+    background-size: cover;
+  }
 .signin_header_text {
     text-align: center;
     color: white;
@@ -18,4 +18,8 @@
 
   .main-cont-signin{
       margin-top: 100px;
+  }
+
+  .header-left-sign-in img{
+      margin-left: 60px;
   }
