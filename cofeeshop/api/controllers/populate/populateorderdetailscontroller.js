@@ -27,8 +27,8 @@
     fn: async function () {
 
     await OrderDetails.createEach([
-        {Price:3, Quantity:3, coffeeID:1, ordersID:1},
-        {Price:4, Quantity:2, coffeeID:4, ordersID:1}]
+        {price:3, quantity:3, coffeeID:1, ordersID:1},
+        {price:4, quantity:2, coffeeID:4, ordersID:1}]
     );
 
     this.res.redirect("populate");

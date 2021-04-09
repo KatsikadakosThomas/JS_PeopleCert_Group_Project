@@ -20,6 +20,24 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+  
+  price:{
+    type:"number",
+    required:true,
+    example:1.8,
+    description:"coffee price",
+  },
+
+  quantity:{
+    type:"number",
+    required:true,
+    example:3
+  },
+
+
+
+
+
    coffeeID:{
       model:"coffees"
     },

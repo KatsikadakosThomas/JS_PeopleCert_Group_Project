@@ -21,6 +21,7 @@ module.exports.policies = {
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
   'populate/*':true,
+  'demo/checkout':true,
   
    //Super admin policies
 
