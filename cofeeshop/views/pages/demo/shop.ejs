@@ -38,14 +38,21 @@
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
           possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
           repellat.</p>
+          <%let pricesArray = [];%>
+          <% products.forEach(function(product){
+            pricesArray.push(product.price)
+          })%>
+          <% let maximumPrice = Math.max(...pricesArray);
+          let minimumPrice = Math.min(...pricesArray);
+          %>
           <button class="btn btn-primary btn-lg filter_button" id="all_filter" disabled = "disabled">Show All</button>
         <button class="btn btn-primary btn-lg filter_button" id="hot_filter">Show Hot Only</button>
         <button class="btn btn-primary btn-lg filter_button" id="cold_filter">Show Cold Only</button>
         <br><br>
         <label for="minimum_price">Min:</label>
-        <input type="number" min="0.1" max="100" step="0.1" name="minimum_price" id="min_price">
+        <input type="number" min="<%=minimumPrice%>" max="<%=maximumPrice - 0.1%>" step="0.1" name="minimum_price" id="min_price" value="<%=minimumPrice%>">
         <label for="maximum_price">Max:</label>
-        <input type="number" min="0.1" max="100" step="0.1" name="maximum_price" id="max_price">
+        <input type="number" min="<%=minimumPrice + 0.1%>" max="<%=maximumPrice%>" step="0.1" name="maximum_price" id="max_price" value="<%=minimumPrice + 0.1%>">
         <button class="btn btn-primary btn-lg" id="show_selected_prices_button">Show Selected Prices Only</button>
       </header>
 
@@ -114,6 +121,8 @@
     let maximumPriceInput = document.getElementById("max_price")
     let minimumPriceInput = document.getElementById("min_price")
     let priceButton = document.getElementById("show_selected_prices_button")
+    let minimumPricePresetValue = minimumPriceInput.value;
+    let maximumPriceMaxValue = maximumPriceInput.max;
     function reenableRestOfButtons(params) {
       allFiltersButtons.forEach(function(button){
         if (button.id !== params) {
@@ -161,19 +170,34 @@
       hideRestOfCards("Hot")
     })
     priceButton.addEventListener("click", function(){
-      showAllCards();
-      shopProductPrice.forEach(function(price){
+      if (maximumPriceInput.value > minimumPriceInput.value) {
+        // showAllCards();
+        showAllFilterButton.disabled = false
+        shopProductPrice.forEach(function(price){
         let priceWithoutEuroSymbol = price.innerText.slice(0, -2);
-        if (maximumPriceInput.value > minimumPriceInput.value){
         if ((priceWithoutEuroSymbol>=minimumPriceInput.value) && (priceWithoutEuroSymbol<= maximumPriceInput.value)) {
+          price.parentElement.parentElement.parentElement.style.display = 'block';
+        }else{
+          price.parentElement.parentElement.parentElement.style.display = 'none';
+        }
+        })
       }else{
-        price.parentElement.parentElement.parentElement.style.display = 'none';
-      }}else{
-        minimumPriceInput.value = 1;
-        maximumPriceInput.value = 2;
+        minimumPriceInput.value = minimumPricePresetValue;
+        maximumPriceInput.value = parseInt(minimumPricePresetValue) + 0.1;
         alert("Minimum price needs to be smaller than maximum price.")
       }
-    })
+  })
+  minimumPriceInput.addEventListener("change", function(){
+    if (maximumPriceInput.value <= minimumPriceInput.value) {
+      minimumPriceInput.value = minimumPricePresetValue;
+      alert("Minimum price needs to be smaller than maximum price.")
+    }
+  })
+  maximumPriceInput.addEventListener("change", function(){
+    if (maximumPriceInput.value <= minimumPriceInput.value) {
+        maximumPriceInput.value = maximumPriceMaxValue;
+      alert("Minimum price needs to be smaller than maximum price.")
+    }
   })
   </script>
   
