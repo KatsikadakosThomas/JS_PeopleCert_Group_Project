@@ -10,6 +10,7 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "animate.css": "^4.1.1",
     "bcryptjs": "^2.4.3",
+    "curl": "^0.1.4",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "sails": "^1.4.0",
