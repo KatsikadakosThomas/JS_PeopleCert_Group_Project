@@ -20,6 +20,19 @@ module.exports = {
       message: message,
     });
   },
+  userOrders: async function (req,res){
+    let connectedUserId = req.session.userId;
+    console.log(connectedUserId);
+    const products = await Coffees.find();
+    const orders = await Orders.find();
+    const ordersDetails = await OrderDetails.find()
+    return res.view("pages/account/account-orders", {
+      connectedUserId: connectedUserId,
+      products: products,
+      orders: orders,
+      ordersDetails: ordersDetails,
+    })
+  },
   contactUs: async function (req,res){
     return res.view("pages/demo/contact-us",{
     })

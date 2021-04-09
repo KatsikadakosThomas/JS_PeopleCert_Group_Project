@@ -31,7 +31,7 @@ module.exports.policies = {
      "home":true,
      "contactUs":true,
      "showCartPage":true,
-     
+     "userOrders": true
    },
 
    "dashboard/adminwelcome" : "is-super-admin",

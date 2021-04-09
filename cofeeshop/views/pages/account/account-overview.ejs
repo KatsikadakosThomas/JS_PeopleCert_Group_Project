@@ -50,6 +50,11 @@
         <strong :class="[me.emailStatus === 'unconfirmed' || me.emailStatus === 'change-requested' ? 'text-muted' : '']">{{me.emailChangeCandidate ? me.emailChangeCandidate : me.emailAddress}}</strong>
         <span v-if="me.emailStatus === 'unconfirmed' || me.emailStatus === 'change-requested'" class="badge badge-pill badge-warning">Unverified</span>
       </div>
+      <div class="col-sm-6">
+        <span class="float-sm-right">
+          <a style="width: 150px" class="btn btn-sm btn-outline-info" href="/account/orders">Show Orders</a>
+        </span>
+      </div>
     </div>
     <hr/>
     <div class="row mb-3">
