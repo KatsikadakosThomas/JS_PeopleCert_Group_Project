@@ -22,7 +22,6 @@ module.exports = {
   },
   userOrders: async function (req,res){
     let connectedUserId = req.session.userId;
-    console.log(connectedUserId);
     const products = await Coffees.find();
     const orders = await Orders.find();
     const ordersDetails = await OrderDetails.find()
