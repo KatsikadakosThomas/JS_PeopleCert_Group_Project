@@ -22,7 +22,9 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
   'populate/*':true,
   'demo/checkout':true,
-  
+  PageController: {
+    "contactUs":true,
+  },
    //Super admin policies
 
   PageController: { 
