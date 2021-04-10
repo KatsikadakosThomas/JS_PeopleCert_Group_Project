@@ -3,24 +3,33 @@ var stripe= require('stripe')('sk_test_51IcCKmB8QCrXCSB3eCWHREnZZUn7NT3fU1TW8Ae2
 module.exports = {
 
 fn: async function() {
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items: [
-          {
-            price_data: {
-              currency: 'usd',
-              product_data: {
-                name: 'T-shirt',
-              },
-              unit_amount: 2000,
-            },
-            quantity: 1,
+      
+  var amount= await Orders.find({id:1})
+
+  // console.log(amount[0].totalPrice);
+  var payment={
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'T-shirt',
           },
-        ],
-        mode: 'payment',
-        success_url: 'http://localhost:1337/demo/homepage',
-        cancel_url: 'http://localhost:1337/demo/populate',
-      });
+          unit_amount: 30000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'http://localhost:1337/demo/homepage',
+    cancel_url: 'http://localhost:1337/demo/populate',
+  }
+  
+  payment.line_items[0].price_data.unit_amount=amount[0].totalPrice;
+  console.log(amount[0].totalPrice);
+
+      const session = await stripe.checkout.sessions.create(payment);
     
     return this.res.json({ id: session.id });
     

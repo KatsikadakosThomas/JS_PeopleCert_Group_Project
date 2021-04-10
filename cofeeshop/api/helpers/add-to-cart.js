@@ -9,7 +9,7 @@ module.exports = {
 
   inputs: {
 
-    coffeesId: {
+    product: {
       
       type: 'string',
       required: true
@@ -28,7 +28,8 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     //find the product
-    var product = await Coffees.findOne({ id: inputs.coffeesId})
+    console.log(JSON.stringify(inputs));
+    var product = await Coffees.findOne({ id: inputs.product})
     console.log(`product is =${JSON.stringify(product)}`);
     
 
