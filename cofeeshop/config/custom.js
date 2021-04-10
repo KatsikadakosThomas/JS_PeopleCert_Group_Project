@@ -61,21 +61,21 @@ module.exports.custom = {
   * (https://app.sendgrid.com/settings/api_keys)                            *
   *                                                                         *
   **************************************************************************/
-  // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
+  sendgridSecret: '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',
   //--------------------------------------------------------------------------
   // /\  Configure this to enable support for automated emails.
   // ||  (Important for password recovery, verification, contact form, etc.)
   //--------------------------------------------------------------------------
 
   // The sender that all outgoing emails will appear to come from.
-  fromEmailAddress: 'noreply@example.com',
-  fromName: 'The NEW_APP_NAME Team',
+  fromEmailAddress: 'aeroporoy10@hotmail.com',
+  fromName: 'CoffeBrand',
 
   // Email address for receiving support messages & other correspondences.
   // > If you're using the default privacy policy, this will be referenced
   // > as the contact email of your "data protection officer" for the purpose
   // > of compliance with regulations such as GDPR.
-  internalEmailAddress: 'support+development@example.com',
+  internalEmailAddress: 'aeroporoy10@gmail.com',
 
   // Whether to require proof of email address ownership any time a new user
   // signs up, or when an existing user attempts to change their email address.
