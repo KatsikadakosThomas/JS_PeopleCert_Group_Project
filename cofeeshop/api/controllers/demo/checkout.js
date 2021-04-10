@@ -4,15 +4,19 @@ module.exports = {
 
 fn: async function() {
       
-  var amount= await Orders.find({id:1})
+  var amount= await Orderdetails.find().where({ordersID:1})
 
+
+
+
+  
   // console.log(amount[0].totalPrice);
   var payment={
     payment_method_types: ['card'],
     line_items: [
       {
         price_data: {
-          currency: 'usd',
+          currency: 'eur',
           product_data: {
             name: 'T-shirt',
           },
