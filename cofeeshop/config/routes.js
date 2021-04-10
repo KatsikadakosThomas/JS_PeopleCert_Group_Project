@@ -65,6 +65,9 @@
   "POST /update-cart-item": "CartController.update",
   "GET /cart": "PageController.showCartPage",
   "GET /remove-item/:id": "CartController.remove",
+
+  //payment routes
+  "GET /success":{action:"demo/success", csrf: false},
   'POST /create-checkout-session': {action: "demo/checkout", csrf: false},
   "GET /payment": { action: "demo/payment" },
 

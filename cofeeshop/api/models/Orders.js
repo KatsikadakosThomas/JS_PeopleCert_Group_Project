@@ -13,7 +13,6 @@ module.exports = {
 
         totalPrice: {
             type: 'number',
-            required: true,
             description: 'total price of products',
             example: 10,
         },
@@ -26,6 +25,12 @@ module.exports = {
         isPaid: {
             type: 'boolean',
             description: 'if payment is completed',
+        },
+        address:{
+            type:'string',
+            maxLength:50,
+            description: 'shipping address',
+            example: "28 Rose street"
         },
 
         //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

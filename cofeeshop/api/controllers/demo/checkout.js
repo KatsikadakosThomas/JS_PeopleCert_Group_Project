@@ -22,7 +22,7 @@ fn: async function() {
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:1337/demo/homepage',
+    success_url: 'http://localhost:1337/success',
     cancel_url: 'http://localhost:1337/demo/populate',
   }
   
