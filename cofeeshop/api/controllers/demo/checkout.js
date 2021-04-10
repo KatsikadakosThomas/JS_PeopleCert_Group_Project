@@ -18,11 +18,12 @@ fn: async function() {
           },
         ],
         mode: 'payment',
-        success_url: 'https://localhost:1337/demo/homepage',
-        cancel_url: 'https://localhost:1337/demo/populate',
+        success_url: 'http://localhost:1337/demo/homepage',
+        cancel_url: 'http://localhost:1337/demo/populate',
       });
     
-      this.res.json({ id: session.id });
+    return this.res.json({ id: session.id });
+    
     }
 
 };
