@@ -70,7 +70,6 @@ module.exports = {
       var updatedCart = currentCart
 
       //update the quantity
-      console.log('updated'+JSON.stringify(productid));
       updatedCart.items[productid].qty = qty
 
       //reset total price and qty
@@ -80,6 +79,11 @@ module.exports = {
       //update the total price and qty
       updatedCart.totalQty = +updatedCart.totalQty + qty
       updatedCart.totalPrice = updatedCart.totalPrice + updatedCart.items[productid].product.price * qty
+      
+      //update the already added orderdetails with a given product number and the unique order id number
+      await OrderDetails.update().set({price: updatedCart.totalPrice, quantity: updatedCart.totalQty}).where({"coffeeID":product.id,"ordersID":inputs.req.session.order.id})
+
+      // console.log('when updating the already added'+ JSON.stringify(updatedCart,null, "  "));
 
     } else {
 
@@ -94,14 +98,16 @@ module.exports = {
     currentCart.totalPrice = currentCart.totalPrice + product.price * qty
 
     var updatedCart = currentCart
-    // console.log('updated'+JSON.stringify(updatedCart));
+
+    //added new orderDetails on add to cart
+   await OrderDetails.create({price: product.price, quantity: 1, coffeeID: inputs.req.param('id'),ordersID: inputs.req.session.order.id}).fetch()
+  
+   // console.log('when adding new updated'+ JSON.stringify(updatedCart,null, "  "));
     }
-    // console.log("updated cart"+ JSON.stringify(updatedCart,null,"  "));
-    // All done. Return the updated cart.
+
     return exits.success(updatedCart);
 
   }
-
 
 };
 
