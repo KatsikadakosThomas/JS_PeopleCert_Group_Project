@@ -25,16 +25,26 @@ module.exports = {
 
   	} else {
 
-  		//create new cart and add if no cart in session
+  		//create new cart and order then add if no cart in session
 
   		let cart = await sails.helpers.addToCart(req.param('id'), 1)
       let order = await sails.helpers.createOrder(req)
-      // console.log(order)
+
   		//Put it in session
   		req.session.cart = cart
       req.session.order = order
-      console.log("session")
-      console.log(req.session.order)
+
+      //initialize variable to insert into querry
+      var addPrice= req.session.cart.totalPrice;
+      var addCoffeeid= req.param('id');
+      var addQty= req.session.cart.totalQty;
+
+
+      //create first orderDetail
+      const orderDetailQuerry= await OrderDetails.create({price: `${addPrice}`, quantity: `${addQty}`,coffeeID: `${addCoffeeid}`, ordersID: `${req.session.order.id}`}).fetch()
+      console.log("first order details querry returns :");
+      console.log(orderDetailQuerry);
+
   		return res.redirect('back')
       
   	}
