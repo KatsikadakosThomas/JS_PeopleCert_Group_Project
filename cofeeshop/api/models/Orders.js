@@ -30,7 +30,7 @@ module.exports = {
             type:'string',
             maxLength:50,
             description: 'shipping address',
-            example: "28 Rose street"
+            example: "28 Rose street",
         },
 
         //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
