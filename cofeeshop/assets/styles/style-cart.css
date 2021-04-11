@@ -1,11 +1,18 @@
 .cart {
   padding-left: 12px;
+  padding-top:100px;
 }
 
 .emtycart {
   padding-left: 12px;
   font-size: 30px;
   color: #ff0000;
+}
+.emptycart1{
+  padding-bottom: 150px;
+  padding-top: 120px;
+
+
 }
 
 .cart_header {
@@ -19,10 +26,6 @@
 }
 
 
-#paypal-button {
-  margin-left : auto;
-  margin: auto;
-  width: 50%;
-  padding: 10px;
- 
+.checkoutbtn {
+  padding-bottom:150px;
 }
