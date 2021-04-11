@@ -37,7 +37,7 @@ console.log(finalprice)
     cancel_url: 'http://localhost:1337/demo/populate',
   }
   
-  payment.line_items[0].price_data.unit_amount = finalprice*100;
+  payment.line_items[0].price_data.unit_amount = Math.ceil(finalprice*100);
   
 
       const session = await stripe.checkout.sessions.create(payment);
