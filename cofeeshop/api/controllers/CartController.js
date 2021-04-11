@@ -26,11 +26,15 @@ module.exports = {
   	} else {
 
   		//create new cart and add if no cart in session
-  		let cart = await sails.helpers.addToCart(req.param('id'), 1)
 
+  		let cart = await sails.helpers.addToCart(req.param('id'), 1)
+      let order = await sails.helpers.createOrder(req)
+      // console.log(order)
   		//Put it in session
   		req.session.cart = cart
-
+      req.session.order = order
+      console.log("session")
+      console.log(req.session.order)
   		return res.redirect('back')
       
   	}

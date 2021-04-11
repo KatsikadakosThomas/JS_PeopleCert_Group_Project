@@ -13,7 +13,6 @@ module.exports = {
 
         totalPrice: {
             type: 'number',
-            required: true,
             description: 'total price of products',
             example: 10,
         },
