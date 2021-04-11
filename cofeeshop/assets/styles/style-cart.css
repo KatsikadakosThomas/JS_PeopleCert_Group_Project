@@ -4,7 +4,8 @@
 
 .emtycart {
   padding-left: 12px;
-  font-size: 18px;
+  font-size: 30px;
+  color: #ff0000;
 }
 
 .cart_header {
@@ -17,19 +18,6 @@
   padding-top: 250px;
 }
 
-.cartthead {
-  background-color: #d3d3d3;
-
-}
-
-.carttbody {
-  background-color: #e4f0f5;
-}
-
-.carttd {
-  border: 1px solid #bebebe;
-  padding: 5px 10px;
-}
 
 #paypal-button {
   margin-left : auto;

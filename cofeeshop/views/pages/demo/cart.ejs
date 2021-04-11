@@ -9,7 +9,7 @@
         <a href="/login" class="log-in-link">Sign-In</a>
         <a href="/demo/homepage/shop" >Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout" class="logout-link"">Logout</a>
+        <a href="/logout" class="logout-link">Logout</a>
         <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
     <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart" ></i>
           <% if (req.session.cart) { %>
@@ -35,7 +35,7 @@
       <a class="emtycart" a href="/demo/homepage/shop">Lets fix that!</a>
       <% } else { -%>
         
-      <table class="table table-borderless" >
+      <table class="table table-dark table-hover table-bordered" >
         <thead class="cartthead">
           <tr>
             <th class="carttd">Item</th>
@@ -75,9 +75,16 @@
           <% }) %>
         </tbody>
       </table>
-      <form action="/payment" method="GET">
+      <form action="/payment" method="POST" onsubmit="return false">
+        <div class="form-group">
+          <label for="Add_address">Shipping Address:</label>
+          <input type="text" name="Add_address" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-info">Checkout</button>
+        </form>
+      <!-- <form action="/payment" method="GET">
         <button class="btn">Checkout</button>
-      </form>
+      </form> -->
       <% } -%>
     </div>
    
