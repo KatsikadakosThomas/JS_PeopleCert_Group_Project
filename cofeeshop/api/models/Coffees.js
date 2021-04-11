@@ -22,7 +22,11 @@ module.exports = {
      description: {
       type: 'string',
       required: true,
-      maxLength: 140,
+      minLength: 50,
+      columnType: "varchar(500)",
+      maxLength: 500,
+      description: 'The description of the product',
+      example: "Although it is often compared to cappuccino, Wiener melange is a specialty blend of coffee and milk that is more similar to caffe latte. The first written records about melange date back to Vienna in the mid-19th century, while the word melange comes from the French verb méler, which translates as to mix. While there are several variants of this classic, it is usually made with one espresso shot of mild coffee that is served in a large cup.",
      },
 
      price: {
@@ -34,6 +38,8 @@ module.exports = {
 
     image: {
       type: 'string',
+      description: "URL Path",
+      example: "/images/shop/image.jpg"
     },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
