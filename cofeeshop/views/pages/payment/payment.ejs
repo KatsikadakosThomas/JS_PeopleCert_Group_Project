@@ -60,9 +60,9 @@
       <% } -%>
     </div>
     <div class="col-lg-4 mx-auto text-center">
-      <form action="/address" method="post" onsubmit="return false">
+      <form action="/address" method="post"  >
         <div class="form-group">
-          <input type="hidden" name="address_exists" value="<%=orders.address%>">
+          <input type="hidden" name="address_exists" value="<%= _csrf %>">
           <label for="Add_address">Shipping Address:</label>
           <input type="text" name="Add_address" class="form-control" required />
         </div>
