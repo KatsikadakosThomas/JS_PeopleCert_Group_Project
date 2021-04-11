@@ -44,15 +44,15 @@
           <% let maximumPrice = Math.max(...pricesArray);
           let minimumPrice = Math.min(...pricesArray);
           %>
-        <button class="btn btn-primary btn-lg filter_button" id="all_filter" disabled = "disabled">Show All</button>
-        <button class="btn btn-primary btn-lg filter_button" id="usa_filter">Show American (USA) Only &#127482;&#127480;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="greek_filter">Show Greek Only &#127468;&#127479;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="australian_filter">Show Australian Only &#127462;&#127482;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="austrian_filter">Show Austrian Only &#127462;&#127481;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="french_filter">Show French Only &#127467;&#127479;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="german_filter">Show German Only &#127465;&#127466;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="italian_filter">Show Italian Only &#127470;&#127481;</button>
-        <button class="btn btn-primary btn-lg filter_button" id="spanish_filter">Show Spanish Only &#127466;&#127480;</button>
+        <button class="btn btn-primary btn-md filter_button" id="all_filter" disabled = "disabled">Show All</button>
+        <button class="btn btn-primary btn-md filter_button" id="usa_filter">Show American (USA) Only &#127482;&#127480;</button>
+        <button class="btn btn-primary btn-md filter_button" id="greek_filter">Show Greek Only &#127468;&#127479;</button>
+        <button class="btn btn-primary btn-md filter_button" id="australian_filter">Show Australian Only &#127462;&#127482;</button>
+        <button class="btn btn-primary btn-md filter_button" id="austrian_filter">Show Austrian Only &#127462;&#127481;</button>
+        <button class="btn btn-primary btn-md filter_button" id="french_filter">Show French Only &#127467;&#127479;</button>
+        <button class="btn btn-primary btn-md filter_button" id="german_filter">Show German Only &#127465;&#127466;</button>
+        <button class="btn btn-primary btn-md filter_button" id="italian_filter">Show Italian Only &#127470;&#127481;</button>
+        <button class="btn btn-primary btn-md filter_button" id="spanish_filter">Show Spanish Only &#127466;&#127480;</button>
         <br><br>
         <label for="minimum_price">Min:</label>
         <input type="number" min="<%=minimumPrice%>" max="<%=maximumPrice - 0.1%>" step="0.1" name="minimum_price" id="min_price" value="<%=minimumPrice%>">

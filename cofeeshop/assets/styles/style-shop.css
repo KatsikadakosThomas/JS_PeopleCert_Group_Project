@@ -16,3 +16,6 @@ button:disabled {
   #min_price{
       width: 60px;
   }
+  .filter_button{
+      margin-bottom: 10px;
+  }
