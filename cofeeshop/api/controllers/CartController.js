@@ -59,7 +59,7 @@ module.exports = {
 
   },
 
-  remove: function(req, res) {
+  remove: async function(req, res) {
 
     let cart= req.session.cart
 
@@ -73,6 +73,7 @@ module.exports = {
 
     //delet the item
     delete cart.items[id]
+    await OrderDetails.destroy().where({"coffeeID": req.param('id'),"ordersID":req.session.order.id })
 
     return res.redirect('back')
 
