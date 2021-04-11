@@ -69,7 +69,7 @@
   //payment routes
   "GET /success":{action:"demo/success", csrf: false},
   'POST /create-checkout-session': {action: "demo/checkout", csrf: false},
-  "GET /payment": { action: "demo/payment" },
+  "POST /payment": { action: "demo/payment",csrf: false },
 
   //Populate routes
   "GET /demo/populate": {
