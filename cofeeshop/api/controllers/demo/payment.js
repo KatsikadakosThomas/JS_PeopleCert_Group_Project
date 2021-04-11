@@ -16,11 +16,7 @@ module.exports = {
   
   
     fn: async function () {
-        console.log(this.req.session.cart);
-        let order=this.req.session.cart;
-        let user=this.req.me;
-        const ordersQuerry= await Orders.create({totalPrice:`${order.totalPrice}`, userID:`${user.id}`}).fetch();
-      console.log(ordersQuerry);
+ 
     return this.res.view('pages/payment/payment')
   
     }
