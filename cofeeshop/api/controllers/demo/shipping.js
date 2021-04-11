@@ -9,10 +9,10 @@ module.exports = {
             type:'string',
         }
     },
-    fn: async function () {
- 
-       return res.redirect('back');
+    fn: async function ({Add_address}) {
+        var a = this.req.session.order.id
+       await Orders.update().set({address : Add_address}).where({'id': a})
+       return this.res.view('pages/payment/payment')
     }
-  
   
   };

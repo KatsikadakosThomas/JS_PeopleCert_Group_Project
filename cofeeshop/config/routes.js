@@ -70,7 +70,7 @@
   "GET /remove-item/:id": "CartController.remove",
 
   //payment routes
-  'POST/address' : {action:"demo/shipping", csrf: false}, 
+  'POST /address' : {action:"demo/shipping", csrf: false}, 
   "GET /success":{action:"demo/success", csrf: false},
   'POST /create-checkout-session': {action: "demo/checkout", csrf: false},
   "POST /payment": { action: "demo/payment",csrf: false },
