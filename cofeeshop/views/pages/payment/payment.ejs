@@ -1,5 +1,5 @@
 <script src="https://js.stripe.com/v3/"></script>
-<!--<script src="https://www.paypalobjects.com/api/checkout.js"></script> -->
+
 <div class="cart_start_container">
   <div class="top_header cart_header">
     <div class="header-left ">
@@ -27,7 +27,7 @@
 </div>
 
 
-<!-- <div id="paypal-button"></div> -->
+
 <div class="container">
   <div class="row">
     <div class="col-lg-4 mx-auto text-center">
@@ -59,24 +59,22 @@
       </table>
       <% } -%>
     </div>
-    
+  
   <div class="col-lg-4 mx-auto text-center">
 
-    <input type="radio" id="cash" name="paymentMethod" value="true">
+    <input type="radio" id="cash" name="paymentMethod" value="true" onclick="cashOrcredit()">
     <label for="cash">Cash</label><br>
-    <input type="radio" id="credit" name="paymentMethod" value="false">
+    <input type="radio" id="credit" name="paymentMethod" value="false" onclick="cashOrcredit()" checked>
     <label for="credit">Credit Card</label><br>
+    
+    <h2>Your Order will be delivered to <%= address %></h2>
+    
 
-    <% if (undefined == undefined) { -%>
-    <button class="btn btn-success" id="checkout-button">Checkout</button>
+    <button class="btn btn-success" id="checkout-button" >Checkout</button>
+    <form action="/success" method="GET">
+    <button class="btn btn-success" id="cashButton" style="display : none" >Checkout</button>
+  </form>
   </div>
-
-  <% } else { -%>
-    <button class="btn btn-success" id="checkout-button" disabled >Checkout</button>
-</div>
-
-  <% } %>
-
 
 </div>
 </div>
@@ -84,10 +82,26 @@
 <!-- Add an event handler to the checkout button -->
 
 <script type="text/javascript">
+
   // Create an instance of the Stripe object with your publishable API key
   var stripe = Stripe('pk_test_51IcCKmB8QCrXCSB3nhNN2XaLL1natqhRSAL41ghmwSZAz7YNCtdq2MlSEaoYXfWhiqQHpb1brKPUl6irsl9zH6QO00U8WqMI1u');
   var checkoutButton = document.getElementById('checkout-button');
 
+  
+  function cashOrcredit() {
+    if (document.getElementById('credit').checked) {
+        document.getElementById('checkout-button').style.display = 'inline';
+        document.getElementById('cashButton').style.display = 'none';
+    } else {
+      if(document.getElementById('cash').checked){
+        document.getElementById('checkout-button').style.display = 'none';
+        document.getElementById('cashButton').style.display = 'inline';
+      }
+
+    }
+  }
+
+  // if user chooses credit go to checkout action
   checkoutButton.addEventListener('click', function() {
     // Create a new Checkout Session using the server-side endpoint you
     // created in step 3.
@@ -118,50 +132,3 @@
 
 
 
-<!-- <script>
-  paypal.Button.render({
-    // Configure environment
-    env: 'sandbox',
-    client: {
-      sandbox: 'ASacIfWemabfH-WLAQtGqofToAhVXtscByXX9eYp5NTIpPX9j5pFUbpvWo5fmXVkp8UBAaNozYizM8ZD',
-      production: 'demo_production_client_id'
-    },
-    // Customize button 
-    locale: 'en_US',
-    style: {
-      size: 'responsive',
-      color: 'blue',
-      shape: 'pill',
-    },
-
-    // Enable Pay Now checkout flow (optional)
-    commit: true,
-
-    // Set up a payment
-    payment: function(data, actions) {
-      return actions.payment.create({
-        transactions: [{
-          amount: {
-            total: '55.01',
-            currency: 'USD'
-          }
-        }]
-      });
-    },
-    // Execute the payment
-    onAuthorize: function(data, actions) {
-      return actions.payment.execute().then(function() {
-        // Show a confirmation message to the buyer
-        window.alert('Thank you for your purchase!');
-      });
-    }
-  }, '#paypal-button');
-
-  let layoutHeaderHome = document.querySelector('.header');
-let documentFullHeight = document.documentElement.clientHeight;
-window.onscroll = function () {
-    scrollFunction();
-};
-
-
-</script> -->

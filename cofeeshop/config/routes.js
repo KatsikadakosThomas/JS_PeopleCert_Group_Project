@@ -73,7 +73,7 @@
   'POST /address' : {action:"demo/shipping", csrf: false}, 
   "GET /success":{action:"demo/success", csrf: false},
   'POST /create-checkout-session': {action: "demo/checkout", csrf: false},
-  "POST /payment": { action: "demo/payment",csrf: false },
+
 
   //Populate routes
   "GET /demo/populate": {
