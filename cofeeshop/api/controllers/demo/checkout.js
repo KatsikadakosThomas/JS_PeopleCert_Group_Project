@@ -4,9 +4,11 @@ module.exports = {
 
 fn: async function() {
       
-  var amount= await Orders.find().where({id:1})
-  var orders = await OrderDetails.find().where({ordersID:1})
-
+  // var amount= await Orders.find().where({id:1})
+  console.log(this.req.session.order.id);
+  var orders = await OrderDetails.find().where({ordersID:this.req.session.order.id})
+  console.log('orders log');
+  console.log(orders);
 
 	let arr = [];
 	for(let i = 0; i <orders.length; i++){
@@ -35,8 +37,8 @@ console.log(finalprice)
     cancel_url: 'http://localhost:1337/demo/populate',
   }
   
-  payment.line_items[0].price_data.unit_amount=amount[0].totalPrice;
-  console.log(amount[0].totalPrice);
+  payment.line_items[0].price_data.unit_amount = finalprice*100;
+  
 
       const session = await stripe.checkout.sessions.create(payment);
     
