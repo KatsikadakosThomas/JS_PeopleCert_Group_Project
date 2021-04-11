@@ -27,6 +27,12 @@ module.exports = {
             type: 'boolean',
             description: 'if payment is completed',
         },
+        address:{
+            type:'string',
+            maxLength:50,
+            description: 'shipping address',
+            example: "28 Rose street"
+        },
 
         //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
         //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

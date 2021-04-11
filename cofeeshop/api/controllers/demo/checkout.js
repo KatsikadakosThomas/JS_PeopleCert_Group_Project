@@ -5,8 +5,17 @@ module.exports = {
 fn: async function() {
       
   var amount= await Orders.find().where({id:1})
+  var orders = await OrderDetails.find().where({ordersID:1})
 
-  // console.log(amount[0].totalPrice);
+
+	let arr = [];
+	for(let i = 0; i <orders.length; i++){
+		arr.push(orders[i].price);
+	}
+ console.log(arr);
+ var finalprice = arr.reduce((a, b) => a + b, 0)
+console.log(finalprice)
+
   var payment={
     payment_method_types: ['card'],
     line_items: [
