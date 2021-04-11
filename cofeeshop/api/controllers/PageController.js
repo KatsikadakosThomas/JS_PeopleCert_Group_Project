@@ -40,6 +40,9 @@ module.exports = {
     return res.view("pages/demo/homepage",{
     })
   },
+  addAddress: async function (req, res) {
+    return res.view("return")
+  },
   manageProducts: async function (req, res) {
     const categories = await Categories.find();
     const products = await Coffees.find();

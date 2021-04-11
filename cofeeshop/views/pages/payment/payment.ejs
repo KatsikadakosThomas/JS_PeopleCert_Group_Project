@@ -3,18 +3,18 @@
 <div class="cart_start_container">
   <div class="top_header cart_header">
     <div class="header-left ">
-      <img src="/images/layout/main_logo.png" alt="cyberCafeLogo" width="140" height="100" />
+      <img src="/images/layout/main_logo.png" alt="cyberCafeLogo" width="100" height="100" />
     </div>
-    <div class="header-right">
-      <div class="header-right-links">
-        <a href="/demo/homepage" >Home</a>
-        <a href="/signup" class="sign-up-link" >Sign-Up</a>
-        <a href="/login" class="log-in-link">Sign-In</a>
-        <a href="/demo/homepage/shop" >Shop</a>
-        <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout" class="logout-link"">Logout</a>
-        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
-    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart" ></i>
+  <div class="header-right">
+    <div class="header-right-links">
+      <a href="/demo/homepage" >Home</a>
+      <a href="/signup" class="sign-up-link" >Sign-Up</a>
+      <a href="/login" class="log-in-link">Sign-In</a>
+      <a href="/demo/homepage/shop" >Shop</a>
+      <a href="/demo/contact-us">Contact Us</a>
+      <a href="/logout" class="logout-link">Logout</a>
+      <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+  <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart" ></i>
         <% if (req.session.cart) { %>
         <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
         <% } %>
@@ -22,14 +22,63 @@
   </div>
 </div>
 <div class="cart_header_text">
-  <h1>PAYEMENT</h1>
+  <h1>PAYMENT</h1>
 </div>
 </div>
 
 
-  <button id="checkout-button">Checkout</button>
 <!-- <div id="paypal-button"></div> -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 mx-auto text-center">
+      <% if (items == 0 || items.totalQty == 0 ) { -%>
 
+      <p class="emtycart">Sorry, you got no items in your cart</p>
+      <a class="emtycart" a href="/demo/homepage/shop">Lets fix that!</a>
+      <% } else { -%>
+        
+      <table class="table table-dark table-hover table-bordered" >
+        <thead class="cartthead">
+          <tr>
+            <th class="carttd">Item</th>
+            <th class="carttd">Quantity</th>
+            <th class="carttd">Total Price</th>
+          </tr>
+        </thead class="cartthead">
+        <tbody class="carttbody">
+          <% Object.keys(items).forEach( function(item) { %>
+          <tr>
+            <td class="carttd"><%= items[item].product.name %></td>
+            <td class="carttd">
+                <%= items[item].qty %> piece
+            </td>
+            <td><%= items[item].product.price * items[item].qty%> €</td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } -%>
+    </div>
+    <div class="col-lg-4 mx-auto text-center">
+      <form action="/address" method="post" onsubmit="return false">
+        <div class="form-group">
+          <input type="hidden" name="address_exists" value="<%=orders.address%>">
+          <label for="Add_address">Shipping Address:</label>
+          <input type="text" name="Add_address" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-info">Set Address</button>
+        </form>
+  </div>
+  <div class="col-lg-4 mx-auto text-center">
+    <input type="radio" id="cash" name="gender" value="cash">
+    <label for="cash">Cash</label><br>
+    <input type="radio" id="credit" name="gender" value="credit_card">
+    <label for="credit">Credit Card</label><br>
+    <button class="btn btn-success" id="checkout-button">Checkout</button>
+
+  </div>
+</div>
+</div>
 
 <!-- Add an event handler to the checkout button -->
 
