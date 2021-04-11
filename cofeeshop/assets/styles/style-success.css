@@ -54,3 +54,10 @@
         box-shadow: inset 0px 0px 0px 30px #4bb71b;
     }
 }
+
+.row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
