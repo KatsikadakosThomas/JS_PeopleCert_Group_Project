@@ -5,7 +5,7 @@
     </div>
   </div>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/products">Categories</a></li>
+    <li class="breadcrumb-item"><a href="/admin/adminwelcome">Welcome</a></li>
     <li class="breadcrumb-item active">Manage Categories</li>
   </ol>
 
@@ -69,11 +69,6 @@
         <%})%>
       </tbody>
     </table>
-  </div>
-  <div class="container">
-    <button class="btn btn-success" id="Add_button">
-      <i class="fa fa-plus"></i> Add User
-    </button>
   </div>
   <div id="admin_add_user_form" class="container">
     <h4 class="display-5">Add User</h4>
@@ -154,25 +149,15 @@
       </div>
       <div class="form-group">
         <input type="hidden" name="Edit_admin_hidden" value="" />
-        <label for="Edit_admin"> Account is Super Admin</label>
-        <input
-          type="checkbox"
-          name="Edit_admin"
-          class="form-control"
-          value=""
-        />
-      </div>
-      <div class="form-group">
         <input type="hidden" name="Edit_customer_hidden" value="" />
-        <input type="checkbox" name="Edit_customer" class="form-control" />
-        <label for="Edit_customer"> Account is Customer</label>
-      </div>
-      <div class="form-group">
         <input type="hidden" name="Edit_billing_card_hidden" value="" />
-        <input type="checkbox" name="Edit_billing_card" class="form-control" />
-        <label for="Edit_billing_card"> Account has Billing Card</label>
+        <input type="checkbox" id="Edit_admin" name="Edit_admin" value="">
+        <label for="Edit_admin"> Account is Super Admin</label><br>
+        <input type="checkbox" id="Edit_customer" name="Edit_customer" value="">
+        <label for="Edit_customer"> Account is Customer</label><br>
+        <input type="checkbox" id="Edit_billing_card" name="Edit_billing_card" value="">
+        <label for="Edit_billing_card"> Account has Billing Card</label><br><br>
       </div>
-
       <button type="submit" class="btn btn-primary">Edit user</button>
     </form>
   </div>
@@ -226,7 +211,6 @@
   let deleteForm = document.querySelector("#admin_delete_user_form");
   let editButtons = document.querySelectorAll(".edit_button");
   let deleteButtons = document.querySelectorAll(".delete_button");
-  let createButton = document.querySelector("#Add_button");
   let adminButton = document.forms["edit_user_form"]["Edit_admin"];
   let customerButton = document.forms["edit_user_form"]["Edit_customer"];
   let billingCard = document.forms["edit_user_form"]["Edit_billing_card"];
@@ -234,11 +218,6 @@
   createForm.style.display = "none";
   editForm.style.display = "none";
   deleteForm.style.display = "none";
-  createButton.addEventListener("click", function () {
-    editForm.style.display = "none";
-    deleteForm.style.display = "none";
-    createForm.style.display = "block";
-  });
   editButtons.forEach((item) => {
     item.addEventListener("click", function () {
       editForm.style.display = "block";

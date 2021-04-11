@@ -44,6 +44,7 @@
   "GET /admin/products/manage": "PageController.manageProducts",
   "GET /admin/users/manage": "PageController.manageUsers",
   "GET /admin/category/manage": "PageController.manageCategories",
+  "GET /admin/order/manage": "PageController.manageOrders",
 
   //Categories CRUD routes
   "POST /admin/category/add": "CategoryController.create",
@@ -55,6 +56,8 @@
   "POST /admin/product/edit": "ProductController.edit",
   "POST /admin/product/delete": "ProductController.delete",
 
+  //Categories CRUD routes
+  "POST /admin/order/delete": "OrderController.delete",
   //user CRUD routes
   "POST /admin/user/add": "UserController.create",
   "POST /admin/user/edit": "UserController.edit",
