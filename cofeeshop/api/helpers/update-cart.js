@@ -81,18 +81,23 @@ module.exports = {
       //update the total price and qty
       updatedCart.totalQty = +updatedCart.totalQty + qty
       updatedCart.totalPrice = updatedCart.totalPrice + updatedCart.items[productid].product.price * qty
+      console.log(updatedCart.totalPrice);
+      let result = Math.round(updatedCart.totalPrice*100)/100;
+      console.log(result)
+      updatedCart.totalPrice =result
+        
 
       
       
       //get id
-      console.log(product.id);
+     // console.log(product.id);
       let id ='item'+product.id
       var orderDetailqty = updatedCart.items[id].qty
       var price = updatedCart.items[id].product.price
 
 
       //update the already added orderdetails with a given product number and the unique order id number
-      await OrderDetails.update().set({price: Math.round(orderDetailqty*price) , quantity: orderDetailqty}).where({"coffeeID":product.id,"ordersID":inputs.req.session.order.id})
+      await OrderDetails.update().set({price: orderDetailqty*price, quantity: orderDetailqty}).where({"coffeeID":product.id,"ordersID":inputs.req.session.order.id})
 
 
     } else {
@@ -120,4 +125,3 @@ module.exports = {
   }
 
 };
-
