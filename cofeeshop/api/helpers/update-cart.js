@@ -81,10 +81,6 @@ module.exports = {
       //update the total price and qty
       updatedCart.totalQty = +updatedCart.totalQty + qty
       updatedCart.totalPrice = updatedCart.totalPrice + updatedCart.items[productid].product.price * qty
-      console.log(updatedCart.totalPrice);
-      let result = Math.round(updatedCart.totalPrice*100)/100;
-      console.log(result)
-      updatedCart.totalPrice =result
         
 
       
