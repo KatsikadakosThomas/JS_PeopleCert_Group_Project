@@ -1,6 +1,5 @@
 <script src="https://js.stripe.com/v3/"></script>
 
-<div class="cart_start_container">
   <div class="top_header cart_header">
     <div class="header-left ">
       <img src="/images/layout/main_logo.png" alt="cyberCafeLogo" width="100" height="100" />
@@ -28,16 +27,29 @@
 
 
 
-<div class="container">
+<div class="container" style="margin-bottom: 40px; margin-top: 20px;">
   <div class="row">
-    <div class="col-lg-4 mx-auto text-center">
+    <div class="col-lg-12 m-auto text-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/demo/homepage/shop">Shop</a></li>
+        <li class="breadcrumb-item"><a href="/cart">Cart</a></li>
+        <li class="breadcrumb-item active">Payment</li>
+      </ol>    
+      <h1>Your Order will be delivered to <%= address %>.</h1>
+      <h2>Below is a table with your final order. Please Select wether you want to pay with cash or with you credit card. In case of the later you will be redirected to Stripe Payment Service so you can input your credit card.</h2>
+    </div>
+  </div>
+</div>
+<div class="container" style="margin-bottom: 150px;">
+  <div class="row">
+    <div class="col-lg-6 mx-auto text-center">
       <% if (items == 0 || items.totalQty == 0 ) { -%>
 
       <p class="emtycart">Sorry, you got no items in your cart</p>
       <a class="emtycart" a href="/demo/homepage/shop">Lets fix that!</a>
       <% } else { -%>
         
-      <table class="table table-dark table-hover table-bordered" >
+      <table class="table table-warning table-hover table-bordered text-center" >
         <thead class="cartthead">
           <tr>
             <th class="carttd">Item</th>
@@ -46,30 +58,32 @@
           </tr>
         </thead class="cartthead">
         <tbody class="carttbody">
+          <%let totalPrice = 0%>
           <% Object.keys(items).forEach( function(item) { %>
           <tr>
             <td class="carttd"><%= items[item].product.name %></td>
             <td class="carttd">
                 <%= items[item].qty %> piece
             </td>
-            <td><%= items[item].product.price * items[item].qty%> €</td>
+            <td><%= items[item].product.price * items[item].qty%> £</td>
+            <% totalPrice += items[item].product.price * items[item].qty %>
           </tr>
           <% }) %>
+          <tr>
+            <td colspan="2">Total Price:</td>
+            <td><%=totalPrice%> £</td>
+          </tr>
         </tbody>
       </table>
       <% } -%>
     </div>
   
-  <div class="col-lg-4 mx-auto text-center">
-
+  <div class="col-lg-6 mx-auto text-center">
+    <h3>Select Your desired payment Method and click on Checkout.</h3>
     <input type="radio" id="cash" name="paymentMethod" value="true" onclick="cashOrcredit()">
-    <label for="cash">Cash</label><br>
+    <label for="cash">Cash  <i class="fa fa-money fa-2x" aria-hidden="true"></i></label><br>
     <input type="radio" id="credit" name="paymentMethod" value="false" onclick="cashOrcredit()" checked>
-    <label for="credit">Credit Card</label><br>
-    
-    <h2>Your Order will be delivered to <%= address %></h2>
-    
-
+    <label for="credit">Credit Card  <i class="fa fa-credit-card fa-2x" aria-hidden="true"></i></label><br>
     <button class="btn btn-success" id="checkout-button" >Checkout</button>
     <form action="/success" method="GET">
     <button class="btn btn-success" id="cashButton" style="display : none" >Checkout</button>

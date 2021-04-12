@@ -27,6 +27,10 @@
   <div class="row text-center">
     <div class="col-lg-2"></div>
     <div class="col-lg-8 text-center">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/demo/homepage/shop">Shop</a></li>
+        <li class="breadcrumb-item active">Cart</li>
+      </ol>    
     <h2 class="cart">Cart Details</h2>
   </div>
   <div class="col-lg-2"></div>
@@ -41,7 +45,7 @@
        </div>
       <% } else { -%>
         
-      <table class="table table-info table-hover table-bordered text-center" >
+      <table class="table table-warning table-hover table-bordered text-center" >
         <thead class="cartthead">
           <tr>
             <th class="carttd">Item</th>
@@ -76,14 +80,14 @@
                 <button type="submit" class="btn btn-info">Update</button>
               </form>
             </td>
-            <td><%= items[item].product.price * items[item].qty%> €</td>
+            <td><%= items[item].product.price * items[item].qty%> £</td>
             <% totalPrice += items[item].product.price * items[item].qty %>
             <td><a href="/remove-item/<%= items[item].product.id %>">x</a></td>
           </tr>
           <% }) %>
           <tr>
             <td colspan="2">Total Price:</td>
-            <td><%=totalPrice%> €</td>
+            <td><%=totalPrice%> £</td>
             <td></td>
           </tr>
         </tbody>
