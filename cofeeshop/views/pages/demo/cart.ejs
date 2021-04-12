@@ -62,14 +62,6 @@
             <td class="carttd">
               <form action="/update-cart-item" method="post">
                 <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-                <!-- <select name="quantity">
-                  <option value="<%= items[item].qty %>" selected>
-                    <%= items[item].qty %>
-                  </option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select> -->
                 <label for="quantity">Quantity: </label>
                 <input type="number" name="quantity" value="<%= items[item].qty %>" step="1" min="1" max="20" style="width: 60px;">
                 <input
