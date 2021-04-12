@@ -13,9 +13,10 @@
     text-decoration: none;
 }
 .header-right-links-home a {
-    color: #ff0000;
-    font-size: 1.5rem;
-    margin: 4px;
+    color: #FFA51E;
+    font-size: 2.5rem;
+    font-family: "Sofia", sans-serif;
+    margin-right: 20px;
 }
 
 .header-right-home {
@@ -25,11 +26,23 @@
 }
 
 
+@media only screen and (max-width: 1610px) {
+    .header-right-links-home a {
+      font-size: 2rem;
+    }
+  }
+  @media only screen and (max-width: 1380px) {
+    .header-right-links-home a {
+      font-size: 1.5rem;
+    }
+  }
 
 
-@media only screen and (max-width: 1110px) {
+
+@media only screen and (max-width: 1127px) {
     .header-right-links-home a {
       font-size: 1rem;
+      margin-right: 5px;
     }
   }
 
@@ -63,13 +76,6 @@
     right: -40%;
 }
 
-.large-text-navbar{
-    font-weight: bolder;
-    font-size: 1.5rem;
-}
-.large-text-navbar li a{
-    color: #ff0000;
-}
 .caption1 img {
     margin: auto;
 }
