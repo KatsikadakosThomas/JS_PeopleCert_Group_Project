@@ -96,10 +96,6 @@
           </td>
         </tr>
         <%})%>
-        <tr class="text-center">
-          <td colspan="7">Total Earnings from all Orders:</td>
-          <td colspan="2"><%=totalEarnings%> £</td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -136,8 +132,6 @@
           referenceNumber = buttonId.substr(14, 15);
           break;
       }
-      console.log(referenceNumber)
-      console.log(idnumber)
       hiddenInput.value = idnumber[referenceNumber - 1].innerText;
     })})
 </script>

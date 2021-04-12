@@ -46,7 +46,6 @@
             ordersDetails.forEach(function (detail){
               if(detail.ordersID === order.id){
                 listOfQuantities.push(detail.quantity)
-                console.log(listOfQuantities)
                 products.forEach(function (product){
                   if(detail.coffeeID === product.id){
                     listOfCofeesPerOrder.push(product.name)
@@ -64,7 +63,6 @@
           <td class="align-middle order_date_payment" id="order_date_payment_<%=i%>">
             <% let original2 = new Date(order.DateOfPayment)%>
             <% let convertDate2 = original2.toUTCString()
-            console.log(convertDate2)
             if (convertDate2 === "Invalid Date"){%>
               ---
             <%}else{

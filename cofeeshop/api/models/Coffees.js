@@ -22,7 +22,6 @@ module.exports = {
      description: {
       type: 'string',
       required: true,
-      minLength: 50,
       columnType: "varchar(500)",
       maxLength: 500,
       description: 'The description of the product',
