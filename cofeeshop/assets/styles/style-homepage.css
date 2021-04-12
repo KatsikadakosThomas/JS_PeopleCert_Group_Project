@@ -115,7 +115,7 @@
 .container4 {
     margin: 50px 0;
     margin-bottom: 0;
-    background-color: #a52a2a;
+    background-color: #583d2b;
     text-align: center;
     border-radius: 10px;
     padding: 30px;
@@ -123,10 +123,10 @@
 }
 .gallery {
     margin: 10px;
-    background-color: #ff6347;
-    border: 2px solid #1310df;
+    background-color: #ffffff;
     display: inline-block;
     width: 24%;
+    border-radius: 5px;
 }
 .gallery img {
     display: inline-block;
@@ -139,7 +139,7 @@
     margin: auto;
     padding: 5px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     word-wrap: break-word;
     color: #000000;
 }
