@@ -72,18 +72,28 @@ module.exports = {
       //update the quantity
       updatedCart.items[productid].qty = qty
 
+
       //reset total price and qty
       updatedCart.totalQty = updatedCart.totalQty - oldQty
       updatedCart.totalPrice = updatedCart.totalPrice - oldPrice
 
+
       //update the total price and qty
       updatedCart.totalQty = +updatedCart.totalQty + qty
       updatedCart.totalPrice = updatedCart.totalPrice + updatedCart.items[productid].product.price * qty
-      
-      //update the already added orderdetails with a given product number and the unique order id number
-      await OrderDetails.update().set({price: updatedCart.totalPrice, quantity: updatedCart.totalQty}).where({"coffeeID":product.id,"ordersID":inputs.req.session.order.id})
 
-      // console.log('when updating the already added'+ JSON.stringify(updatedCart,null, "  "));
+      
+      
+      //get id
+      console.log(product.id);
+      let id ='item'+product.id
+      var orderDetailqty = updatedCart.items[id].qty
+      var price = updatedCart.items[id].product.price
+
+
+      //update the already added orderdetails with a given product number and the unique order id number
+      await OrderDetails.update().set({price: Math.round(orderDetailqty*price) , quantity: orderDetailqty}).where({"coffeeID":product.id,"ordersID":inputs.req.session.order.id})
+
 
     } else {
 
@@ -100,7 +110,7 @@ module.exports = {
     var updatedCart = currentCart
 
     //added new orderDetails on add to cart
-   await OrderDetails.create({price: product.price, quantity: 1, coffeeID: inputs.req.param('id'),ordersID: inputs.req.session.order.id}).fetch()
+   await OrderDetails.create({price: Math.round(product.price), quantity: 1, coffeeID: inputs.req.param('id'),ordersID: inputs.req.session.order.id}).fetch()
   
    // console.log('when adding new updated'+ JSON.stringify(updatedCart,null, "  "));
     }
