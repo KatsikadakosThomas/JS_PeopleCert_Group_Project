@@ -40,7 +40,7 @@
       </thead>
       <tbody>
         <% let i = 0 %> <%orders.forEach(function(order) { i++;
-          if (order.userID === connectedUserId ){
+          if (order.userID === connectedUserId & order.isPaid){
             let listOfCofeesPerOrder = [];
             let listOfQuantities = [];
             ordersDetails.forEach(function (detail){
