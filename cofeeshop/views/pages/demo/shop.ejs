@@ -5,13 +5,13 @@
     <div class="header-right">
       <div class="header-right-links header-right-shop">
         <a href="/demo/homepage">Home</a>
-        <a href="/signup" class="sign-up-link">Sign-Up</a>
-        <a href="/login" class="log-in-link">Sign-In</a>
+        <a href="/signup" class="sign-up-link-top">Sign-Up</a>
+        <a href="/login" class="log-in-link-top">Sign-In</a>
         <a href="/demo/homepage/shop">Shop</a>
         <a href="/demo/contact-us">Contact Us</a>
-        <a href="/logout" class="logout-link">Logout</a>
-        <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
-    <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
+        <a href="/logout" class="logout-link-top">Logout</a>
+        <a class="user-acount-link-top" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+    <a href="/cart" class="cart-link-top"><i class="fa fa-shopping-cart" title="Show my cart"></i>
           <% if (req.session.cart) { %>
           <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
           <% } %>
@@ -34,9 +34,7 @@
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
         <h1 class="display-3">A Warm Welcome!</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
-          possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
-          repellat.</p>
+        <p class="lead">Below are our button-filters if you wish to see coffees from specific countries. You can apply only one filter at a time. Also there is a price range filter.</p>
           <%let pricesArray = [];%>
           <% products.forEach(function(product){
             pricesArray.push(product.price)
@@ -44,9 +42,15 @@
           <% let maximumPrice = Math.max(...pricesArray);
           let minimumPrice = Math.min(...pricesArray);
           %>
-          <button class="btn btn-primary btn-lg filter_button" id="all_filter" disabled = "disabled">Show All</button>
-        <button class="btn btn-primary btn-lg filter_button" id="hot_filter">Show Hot Only</button>
-        <button class="btn btn-primary btn-lg filter_button" id="cold_filter">Show Cold Only</button>
+        <button class="btn btn-primary btn-md filter_button" id="all_filter" disabled = "disabled">Show All</button>
+        <button class="btn btn-primary btn-md filter_button" id="usa_filter">Show American (USA) Only &#127482;&#127480;</button>
+        <button class="btn btn-primary btn-md filter_button" id="greek_filter">Show Greek Only &#127468;&#127479;</button>
+        <button class="btn btn-primary btn-md filter_button" id="australian_filter">Show Australian Only &#127462;&#127482;</button>
+        <button class="btn btn-primary btn-md filter_button" id="austrian_filter">Show Austrian Only &#127462;&#127481;</button>
+        <button class="btn btn-primary btn-md filter_button" id="french_filter">Show French Only &#127467;&#127479;</button>
+        <button class="btn btn-primary btn-md filter_button" id="german_filter">Show German Only &#127465;&#127466;</button>
+        <button class="btn btn-primary btn-md filter_button" id="italian_filter">Show Italian Only &#127470;&#127481;</button>
+        <button class="btn btn-primary btn-md filter_button" id="spanish_filter">Show Spanish Only &#127466;&#127480;</button>
         <br><br>
         <label for="minimum_price">Min:</label>
         <input type="number" min="<%=minimumPrice%>" max="<%=maximumPrice - 0.1%>" step="0.1" name="minimum_price" id="min_price" value="<%=minimumPrice%>">
@@ -60,13 +64,13 @@
         <% let i = 0 %> <%products.forEach(function(product) { i++;%>
         <div class=" col-lg-3 col-md-6 col-sm-12 mb-4 shop_card" id="shop_card_<%=i%>">
           <div class="card h-100">
-            <img class="card-img-top" src="/images/shop/cappuccino.jpg" alt="coffee">
+            <img class="card-img-top" src="<%=product.image%>" alt="<%=product.name%> picture" id="shop_card_product_image_<%=i%>" height="440px">
             <div class="card-body shop_card_product_name">
               <h2 class="card-title shop_card_product_name" id="shop_card_product_name_<%=i%>"><%=product.name%></h2>
               <h2 class="card-title shop_card_product_category" id="shop_card_product_category_<%=i%>"><%categories.forEach(function(category) { if(product.categoryID ===
                 category.id){%> <%=category.Name%> <%}})%></h2>
                 <h2 class="card-text bg-primary text-white shop_card_product_price" id="shop_card_product_price_<%=i%>">
-                  <%=product.price%> €
+                  <%=product.price%> £
                 </h2>
               <p class="card-text shop_card_product_desc" id="shop_card_product_desc_<%=i%>">Description: <%=product.description%></p>
             </div>
@@ -114,8 +118,14 @@
     let shopProductCard = document.querySelectorAll(".shop_card")
     let allFiltersButtons = document.querySelectorAll(".filter_button")
     let showAllFilterButton = document.querySelector("#all_filter");
-    let hotFilterButton = document.querySelector("#hot_filter");
-    let coldFilterButton = document.querySelector("#cold_filter");
+    let usaFilterButton = document.querySelector("#usa_filter");
+    let greekFilterButton = document.querySelector("#greek_filter");
+    let australianFilterButton = document.querySelector("#australian_filter");
+    let austrianFilterButton = document.querySelector("#austrian_filter");
+    let frenchFilterButton = document.querySelector("#french_filter");
+    let germanFilterButton = document.querySelector("#german_filter");
+    let italianFilterButton = document.querySelector("#italian_filter");
+    let spanishFilterButton = document.querySelector("#spanish_filter");
     let maximumPriceInput = document.getElementById("max_price")
     let minimumPriceInput = document.getElementById("min_price")
     let priceButton = document.getElementById("show_selected_prices_button")
@@ -155,17 +165,53 @@
       showAllFilterButton.disabled = true
       reenableRestOfButtons(showAllFilterButton.id)
     })
-    coldFilterButton.addEventListener("click", function(){
+    usaFilterButton.addEventListener("click", function(){
       showAllCards();
-      coldFilterButton.disabled = true
-      reenableRestOfButtons(coldFilterButton.id)
-      hideRestOfCards("cold")
+      usaFilterButton.disabled = true
+      reenableRestOfButtons(usaFilterButton.id)
+      hideRestOfCards("American (USA)")
     })
-    hotFilterButton.addEventListener("click", function(){
+    greekFilterButton.addEventListener("click", function(){
       showAllCards();
-      hotFilterButton.disabled = true
-      reenableRestOfButtons(hotFilterButton.id)
-      hideRestOfCards("Hot")
+      greekFilterButton.disabled = true
+      reenableRestOfButtons(greekFilterButton.id)
+      hideRestOfCards("Greek")
+    })
+    australianFilterButton.addEventListener("click", function(){
+      showAllCards();
+      australianFilterButton.disabled = true
+      reenableRestOfButtons(australianFilterButton.id)
+      hideRestOfCards("Australian")
+    })
+    frenchFilterButton.addEventListener("click", function(){
+      showAllCards();
+      frenchFilterButton.disabled = true
+      reenableRestOfButtons(frenchFilterButton.id)
+      hideRestOfCards("French")
+    })
+    germanFilterButton.addEventListener("click", function(){
+      showAllCards();
+      germanFilterButton.disabled = true
+      reenableRestOfButtons(germanFilterButton.id)
+      hideRestOfCards("German")
+    })
+    italianFilterButton.addEventListener("click", function(){
+      showAllCards();
+      italianFilterButton.disabled = true
+      reenableRestOfButtons(italianFilterButton.id)
+      hideRestOfCards("Italian")
+    })
+    spanishFilterButton.addEventListener("click", function(){
+      showAllCards();
+      spanishFilterButton.disabled = true
+      reenableRestOfButtons(spanishFilterButton.id)
+      hideRestOfCards("Spanish")
+    })
+    austrianFilterButton.addEventListener("click", function(){
+      showAllCards();
+      austrianFilterButton.disabled = true
+      reenableRestOfButtons(austrianFilterButton.id)
+      hideRestOfCards("Austrian")
     })
     priceButton.addEventListener("click", function(){
       if (maximumPriceInput.value > minimumPriceInput.value) {

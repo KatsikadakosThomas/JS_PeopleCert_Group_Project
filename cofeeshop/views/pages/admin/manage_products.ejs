@@ -5,11 +5,9 @@
     </div>
   </div>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/products">Coffees</a></li>
+    <li class="breadcrumb-item"><a href="/admin/adminwelcome">Welcome</a></li>
     <li class="breadcrumb-item active">Manage Coffees</li>
   </ol>
-
-  <h4 class="display-5">Manage Coffees</h4>
 
   <div class="container">
     <table class="table table-dark table-hover table-bordered">
@@ -36,7 +34,7 @@
             <%=product.price%>
           </td>
           <td class="align-middle product_image" id="product_image_<%=i%>">
-            <!-- <img src="<%=product.image%>" alt="coffe" height="100" width="100">  -->
+            <img src="<%=product.image%>" alt="coffe" height="100" width="186"> 
             <%=product.image%>
           </td>
           <td class="align-middle product_categ" id="product_category_<%=i%>">
@@ -61,17 +59,19 @@
       </tbody>
     </table>
   </div>
-  <div class="container">
+  <div class="container text-center m-auto">
+    <div class="row">
+      <div class="col-lg-3">
+      </div>
+      <div class="col-lg-6">
     <button class="btn btn-success" id="Add_button">
       <i class="fa fa-plus"></i> Add Coffee
     </button>
-  </div>
-  <div id="admin_add_product_form" class="container">
+  <div id="admin_add_product_form" class="text-center m-auto">
     <h4 class="display-5">Add Coffee</h4>
     <form
       action="/admin/product/add"
       method="post"
-      style="width: 50%"
       name="add_product_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -89,7 +89,7 @@
           required
           min="0.5"
           max="100"
-          step="0.5"
+          step="0.1"
         />
       </div>
 
@@ -113,6 +113,7 @@
           name="Add_description"
           id="description"
           cols="3"
+          maxlength="500"
           class="form-control"
           required
         ></textarea>
@@ -121,12 +122,12 @@
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
   </div>
-  <div id="admin_edit_product_form" class="container">
+  <div id="admin_edit_product_form" class="text-center m-auto">
+
     <h4 class="display-5">Edit Coffee</h4>
     <form
       action="/admin/product/edit"
       method="post"
-      style="width: 50%"
       name="edit_product_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -146,7 +147,7 @@
           required
           min="0.5"
           max="100"
-          step="0.5"
+          step="0.1"
         />
       </div>
 
@@ -173,6 +174,7 @@
           name="Edit_description"
           id="description"
           cols="3"
+          maxlength="500"
           class="form-control"
           required
         ></textarea>
@@ -181,11 +183,10 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  <div id="admin_delete_product_form" class="container">
+  <div id="admin_delete_product_form" class="m-auto text-center">
     <form
       action="/admin/product/delete"
       method="post"
-      style="width: 50%"
       name="delete_product_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -241,6 +242,7 @@
           id="description"
           cols="3"
           class="form-control"
+          maxlength="500"
           required
           readonly
         ></textarea>
@@ -250,17 +252,18 @@
     </form>
   </div>
 </div>
+</div>
+<div class="col-lg-3"></div>
+</div>
+</div>
 <script>
   let productNames = document.querySelectorAll(".product_name");
   let productDesc = document.querySelectorAll(".product_desc");
   let productPrice = document.querySelectorAll(".product_price");
   let productImage = document.querySelectorAll(".product_image");
-  console.log(productImage);
   let productCateg = document.querySelectorAll(".product_categ");
-  console.log(productCateg);
   let createForm = document.querySelector("#admin_add_product_form");
   let editForm = document.querySelector("#admin_edit_product_form");
-  console.log(editForm);
   let deleteForm = document.querySelector("#admin_delete_product_form");
   let createButton = document.querySelector("#Add_button");
   let editButtons = document.querySelectorAll(".edit_button");
@@ -280,6 +283,7 @@
       deleteForm.style.display = "none";
       createForm.style.display = "none";
       let buttonId = item.id;
+      window.scrollTo(0,document.body.scrollHeight);
       switch (buttonId.length) {
         // Covering up to 999 categories
         case 14:
@@ -292,7 +296,6 @@
           referenceNumber = buttonId.substr(12, 13);
           break;
       }
-      console.log(referenceNumber);
       document.forms["edit_product_form"]["Edit_name"].value =
         productNames[referenceNumber - 1].innerText;
       document.forms["edit_product_form"]["Edit_description"].value =
@@ -307,19 +310,12 @@
         productPrice[referenceNumber - 1].innerText;
       document.forms["edit_product_form"]["Edit_category"].value =
         productCateg[referenceNumber - 1].innerText;
-      console.log(document.forms["edit_product_form"]["Edit_category"].value);
-      console.log(productCateg[referenceNumber - 1].innerText);
       document.forms["edit_product_form"]["Edit_category_hidden"].value =
         productCateg[referenceNumber - 1].innerText;
-      console.log(
-        document.forms["edit_product_form"]["Edit_category_hidden"].value
-      );
-      console.log(productCateg[referenceNumber - 1].innerText);
       document.forms["edit_product_form"]["Edit_image"].value =
         productImage[referenceNumber - 1].innerText;
       document.forms["edit_product_form"]["Edit_image_hidden"].value =
         productImage[referenceNumber - 1].innerText;
-      console.log(productImage[referenceNumber - 1].innerText);
     });
   });
   deleteButtons.forEach((item) => {
@@ -328,6 +324,7 @@
       deleteForm.style.display = "block";
       createForm.style.display = "none";
       let buttonId = item.id;
+      window.scrollTo(0,document.body.scrollHeight);
       switch (buttonId.length) {
         // Covering up to 999 categories
         case 16:

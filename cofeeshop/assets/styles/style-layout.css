@@ -9,6 +9,7 @@
 .header-right {
     float: right;
     width: 70%;
+    font-family: "Sofia", sans-serif;
     height: 100px;
 }
 .header-left {
@@ -18,6 +19,14 @@
     margin-left: 50px;
     margin-top: 20px;
 }
+.large-text-navbar{
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+.large-text-navbar li a{
+    color: #FFA51E;
+    font-family: "Sofia", sans-serif;
+}
 .header-right-links {
     float: right;
     position: relative;
@@ -26,12 +35,12 @@
     text-decoration: none;
 }
 .header-right-links a {
-    color: #ff0000;
-    font-size: 2rem;
+    color: #FFA51E;
+    font-size: 2.5rem;
     margin: 4px;
 }
 
-@media only screen and (max-width: 985px) {
+@media only screen and (max-width: 1055px) {
     .header-right-links a {
       font-size: 1.5rem;
     }
@@ -61,7 +70,7 @@ footer {
     width: 100%;
     height: 50px;
     padding: 3px;
-    background-color: #e9967a;
+    background-color: #312118;
     color: #ffffff;
     position: absolute;
     bottom: 0;

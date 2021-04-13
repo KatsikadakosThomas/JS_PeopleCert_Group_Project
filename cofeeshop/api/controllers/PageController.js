@@ -40,6 +40,23 @@ module.exports = {
     return res.view("pages/demo/homepage",{
     })
   },
+  manageOrders: async function (req, res){
+    const products = await Coffees.find();
+    const orders = await Orders.find();
+    const users = await User.find();
+    const ordersDetails = await OrderDetails.find()
+    const message = req.session.success;
+    req.session.success = [];
+    return res.view("pages/admin/manage_orders", {
+      products: products,
+      users: users,
+      orders: orders,
+      status: "notEmpty",
+      message: message,
+      layout: "layouts/admin-layout",
+      ordersDetails: ordersDetails,
+    })
+  },
   manageProducts: async function (req, res) {
     const categories = await Categories.find();
     const products = await Coffees.find();

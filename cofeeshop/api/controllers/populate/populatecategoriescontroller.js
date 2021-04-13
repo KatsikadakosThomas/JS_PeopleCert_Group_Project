@@ -27,8 +27,14 @@
     fn: async function () {
  
      await Categories.createEach([
-        {Name:"cold", Description:"Cold beverages"},
-        {Name:"Hot", Description:"Hot beverages"}
+        {Name:"Italian", Description:"Coffees from Italy"},
+        {Name:"American (USA)", Description:"Coffees from the USA"},
+        {Name:"Australian", Description:"Coffees from Australia"},
+        {Name:"Greek", Description:"Coffees from Greece"},
+        {Name:"French", Description:"Coffees from France"},
+        {Name:"Spanish", Description:"Coffees from Spain"},
+        {Name:"German", Description:"Coffees from Germany"},
+        {Name:"Austrian", Description:"Coffees from Austria"},
      ]);
     this.res.redirect("populate");
   

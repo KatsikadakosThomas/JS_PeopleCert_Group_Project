@@ -14,14 +14,14 @@
         <div class="header-right-home" >
           <div class="header-right-links-home">
             <a href="/demo/homepage">Home</a>
-            <a href="/signup" class="sign-up-link">Sign-Up</a>
-            <a href="/login" class="log-in-link">Sign-In</a>
+            <a href="/signup" class="sign-up-link-top">Sign-Up</a>
+            <a href="/login" class="log-in-link-top">Sign-In</a>
             <a href="/demo/homepage/shop">Shop</a>
             <a href="/demo/contact-us">Contact Us</a>
-            <a href="/logout" class="logout-link">Logout</a>
-            <a class="user-acount-link" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
-            <a href="/cart" class="cart-link"><i class="fa fa-shopping-cart"></i>
-                  <% if (req.session.cart) { %>
+            <a href="/logout" class="logout-link-top">Logout</a>
+            <a class="user-acount-link-top" href="/account"><i class="fa fa-user-circle" aria-hidden="true" title="Edit Account"></i></a>
+        <a href="/cart" class="cart-link-top"><i class="fa fa-shopping-cart"></i>
+                      <% if (req.session.cart) { %>
                   <span class="badge badge-danger"><%= req.session.cart.totalQty %></span>
                   <% } %>
                 </a>
@@ -37,7 +37,7 @@
           <img src="/images/layout/main_logo.png" alt="main_logo" height="150px" width="150px" />
           <h1>BEST COFEE</h1>
           <img src="/images/homepage/slider-separator-img.png" alt="slider-separator-img" width="140px" height="40px" />
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Coffees from all over the world.</p>
           <form action="/demo/homepage/shop" method="GET">
           <button class="order-now-button" type="submit">Order Now!</button>
         </form>
@@ -51,7 +51,7 @@
           <img src="/images/layout/main_logo.png" alt="main_logo" height="150px" width="150px" />
           <h1>BEST COFEE</h1>
           <img src="/images/homepage/slider-separator-img.png" alt="slider-separator-img" width="140px" height="40px" />
-          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Unlinited variety in tastes.</p>
           <form action="/demo/homepage/shop" method="GET">
             <button class="order-now-button" type="submit">Order Now!</button>
           </form>
@@ -69,54 +69,59 @@
 </div>
 <br />
 <br />
-<div class="container2">
+<div class="container m-auto">
+  <div class="row text-center m-auto">
+    <div class="col-lg-12">
   <h1>OUR DELICIOUS OFFERS</h1>
-  <img src="/images/homepage/title-separator.png" alt="title-separator" />
+  <img src="/images/homepage/title-separator.png" alt="title-separator" style="margin: auto;"/>
   <br />
   <br />
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br />
-    eiusmod tempor incididunt ut labore et dolore
-  </p>
+    Coffeebrand offers a unique coffee house environment unlike any other in Manchester. We are not only a place to drop in and get your morning cup of coffee (although you are more than welcome to do that), but we are also a place where you can sit down and enjoy that tailor-made cup of coffee. If you need to work, we have a seating area created specifically for you. If you need to rest, we have a soft-seating area in front of a stone fireplace that is perfect for your weary mind and body.
+   </p>
 </div>
-<div class="d-flex container3">
-  <div class="p-2 flex-wrap flex-fill">
-    <img src="/images/homepage/h2-custom-icon-5.png" alt="h2-custom-icon-5" />
+  </div>  
+</div>
+<div class="container">
+  <div class="row text-center m-auto ">
+  <div class="col-lg-3 col-md-6 col-sm-12 mb-4 ">
+    <img src="/images/homepage/h2-custom-icon-5.png" alt="h2-custom-icon-5" style="margin: auto;" />
     <h3>TYPES OF COFFEE</h3>
     <p>
-      Lorem ipsum dolor sit ametal,<br />
-      consectetuer adipiscing elitus. <br />
-      Aeneantos commodo
+      We have coffees from 8 different countries
+      and we arelooking to expand into even more.
+      We will always strive to bring something new.
     </p>
   </div>
-  <div class="p-2 flex-wrap flex-fill">
-    <img src="/images/homepage/h2-custom-icon-6.png" alt="h2-custom-icon-6" />
+  <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+    <img src="/images/homepage/h2-custom-icon-6.png" alt="h2-custom-icon-6" style="margin: auto;" />
     <h3>BEAN VARIETIES</h3>
     <p>
-      Lorem ipsum dolor sit ametal,<br />
-      consectetuer adipiscing elitus. <br />
-      Aeneantos commodo
+      Since we have coffees from all over the world
+      we strive to have the best quality of beans so 
+      that the aroma of each coffee will remain memorable
     </p>
   </div>
-  <div class="p-2 flex-wrap flex-fill">
-    <img src="/images/homepage/h2-custom-icon-7.png" alt="h2-custom-icon-7" />
+  <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+    <img src="/images/homepage/h2-custom-icon-7.png" alt="h2-custom-icon-7" style="margin: auto;"/>
     <h3>COFFEE & PASTRY</h3>
     <p>
-      Lorem ipsum dolor sit ametal,<br />
-      consectetuer adipiscing elitus. <br />
-      Aeneantos commodo
+      Apart from coffee we will offer you some,
+      small deserts if you come by our place. 
+      We have worked so hard on the atmosphere of the place.
     </p>
   </div>
   <br />
-  <div class="p-2 flex-wrap flex-fill">
-    <img src="/images/homepage/h2-custom-icon-8.png" alt="h2-custom-icon-8" />
+  <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+    <img src="/images/homepage/h2-custom-icon-8.png" alt="h2-custom-icon-8" style="margin: auto;"/>
     <h3>COFFEE TO GO</h3>
     <p>
-      Lorem ipsum dolor sit ametal,<br />
-      consectetuer adipiscing elitus. <br />
-      Aeneantos commodo
+      Of course if you cant come or dont have time,
+      to stay we will bring your coffee to your place.
+      We will try to be quick about it.
     </p>
   </div>
+</div>
 </div>
 <div class="container2">
   <h1>OUR SWEET GALLERY</h1>
@@ -124,8 +129,8 @@
   <br />
   <br />
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br />
-    eiusmod tempor incididunt ut labore et dolore
+    Below are some photos of our beutifull cafeteria <br />
+    and some of our hard working staff on the job.
   </p>
 </div>
 <div class="container4">

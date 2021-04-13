@@ -5,8 +5,8 @@
     </div>
   </div>
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/products">Categories</a></li>
-    <li class="breadcrumb-item active">Manage Categories</li>
+    <li class="breadcrumb-item"><a href="/admin/adminwelcome">Welcome</a></li>
+    <li class="breadcrumb-item active">Manage Users</li>
   </ol>
 
   <div class="container">
@@ -70,17 +70,15 @@
       </tbody>
     </table>
   </div>
-  <div class="container">
-    <button class="btn btn-success" id="Add_button">
-      <i class="fa fa-plus"></i> Add User
-    </button>
-  </div>
-  <div id="admin_add_user_form" class="container">
+  <div class="container text-center m-auto">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+  <div id="admin_add_user_form">
     <h4 class="display-5">Add User</h4>
     <form
       action="/admin/user/add"
       method="post"
-      style="width: 50%"
       name="add_user_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -133,12 +131,11 @@
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
   </div>
-  <div id="admin_edit_user_form" class="container">
+  <div id="admin_edit_user_form">
     <h4 class="display-5">Edit User</h4>
     <form
       action="/admin/user/edit"
       method="post"
-      style="width: 50%"
       name="edit_user_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -154,25 +151,15 @@
       </div>
       <div class="form-group">
         <input type="hidden" name="Edit_admin_hidden" value="" />
-        <label for="Edit_admin"> Account is Super Admin</label>
-        <input
-          type="checkbox"
-          name="Edit_admin"
-          class="form-control"
-          value=""
-        />
-      </div>
-      <div class="form-group">
         <input type="hidden" name="Edit_customer_hidden" value="" />
-        <input type="checkbox" name="Edit_customer" class="form-control" />
-        <label for="Edit_customer"> Account is Customer</label>
-      </div>
-      <div class="form-group">
         <input type="hidden" name="Edit_billing_card_hidden" value="" />
-        <input type="checkbox" name="Edit_billing_card" class="form-control" />
-        <label for="Edit_billing_card"> Account has Billing Card</label>
+        <input type="checkbox" id="Edit_admin" name="Edit_admin" value="">
+        <label for="Edit_admin"> Account is Super Admin</label><br>
+        <input type="checkbox" id="Edit_customer" name="Edit_customer" value="">
+        <label for="Edit_customer"> Account is Customer</label><br>
+        <input type="checkbox" id="Edit_billing_card" name="Edit_billing_card" value="">
+        <label for="Edit_billing_card"> Account has Billing Card</label><br><br>
       </div>
-
       <button type="submit" class="btn btn-primary">Edit user</button>
     </form>
   </div>
@@ -181,7 +168,6 @@
     <form
       action="/admin/user/delete"
       method="post"
-      style="width: 50%"
       name="delete_user_form"
     >
       <input type="hidden" name="_csrf" value="<%= _csrf %>" />
@@ -215,6 +201,10 @@
     </form>
   </div>
 </div>
+<div class="col-lg-3"></div>
+</div>
+</div>
+</div>
 <script>
   let userNames = document.querySelectorAll(".user_name");
   let userEmail = document.querySelectorAll(".user_emailAddress");
@@ -226,7 +216,6 @@
   let deleteForm = document.querySelector("#admin_delete_user_form");
   let editButtons = document.querySelectorAll(".edit_button");
   let deleteButtons = document.querySelectorAll(".delete_button");
-  let createButton = document.querySelector("#Add_button");
   let adminButton = document.forms["edit_user_form"]["Edit_admin"];
   let customerButton = document.forms["edit_user_form"]["Edit_customer"];
   let billingCard = document.forms["edit_user_form"]["Edit_billing_card"];
@@ -234,16 +223,12 @@
   createForm.style.display = "none";
   editForm.style.display = "none";
   deleteForm.style.display = "none";
-  createButton.addEventListener("click", function () {
-    editForm.style.display = "none";
-    deleteForm.style.display = "none";
-    createForm.style.display = "block";
-  });
   editButtons.forEach((item) => {
     item.addEventListener("click", function () {
       editForm.style.display = "block";
       deleteForm.style.display = "none";
       createForm.style.display = "none";
+      window.scrollTo(0,document.body.scrollHeight);
       let buttonId = item.id;
       switch (buttonId.length) {
         // Covering up to 999 categories
@@ -267,9 +252,6 @@
         userNames[referenceNumber - 1].innerText;
       document.forms["edit_user_form"]["Edit_admin"].value =
         userSuperAdmin[referenceNumber - 1].innerText;
-      console.log(document.forms["edit_user_form"]["Edit_admin"].value);
-      console.log(userSuperAdmin[referenceNumber - 1]);
-      console.log(userSuperAdmin[referenceNumber - 1].innerText);
       document.forms["edit_user_form"]["Edit_admin_hidden"].value =
         userSuperAdmin[referenceNumber - 1].innerText;
       document.forms["edit_user_form"]["Edit_customer"].value =
@@ -303,6 +285,7 @@
       deleteForm.style.display = "block";
       createForm.style.display = "none";
       let buttonId = item.id;
+      window.scrollTo(0,document.body.scrollHeight);
       switch (buttonId.length) {
         // Covering up to 999 categories
         case 16:
@@ -328,39 +311,24 @@
     });
   });
   adminButton.addEventListener("change", function () {
-    console.log("change");
     if (adminButton.checked) {
-      console.log("checked");
       adminButton.value = true;
-      console.log("adminButton.value", adminButton.value);
     } else {
-      console.log("not checked");
       adminButton.value = false;
-      console.log("adminButton.value", adminButton.value);
     }
   });
   customerButton.addEventListener("change", function () {
-    console.log("change");
     if (customerButton.checked) {
-      console.log("checked");
       customerButton.value = true;
-      console.log("customerButton.value", customerButton.value);
     } else {
-      console.log("not checked");
       customerButton.value = false;
-      console.log("customerButton.value", customerButton.value);
     }
   });
   billingCard.addEventListener("change", function () {
-    console.log("change");
     if (billingCard.checked) {
-      console.log("checked");
       billingCard.value = true;
-      console.log("billingCard.value", billingCard.value);
     } else {
-      console.log("not checked");
       billingCard.value = false;
-      console.log("billingCard.value", billingCard.value);
     }
   });
 </script>

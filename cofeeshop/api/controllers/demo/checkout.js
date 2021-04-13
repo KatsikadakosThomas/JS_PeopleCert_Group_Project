@@ -4,32 +4,48 @@ module.exports = {
 
 fn: async function() {
       
-  var amount= await Orders.find({id:1})
 
-  // console.log(amount[0].totalPrice);
+  //get all orderDetails with session order id
+  var orders = await OrderDetails.find().where({ordersID:this.req.session.order.id})
+
+  //loop through all orderDetails object and add the result to finalprice
+	let arr = [];
+	for(let i = 0; i <orders.length; i++){
+		arr.push(orders[i].price);
+	}
+ console.log(arr);
+ var finalprice = arr.reduce((a, b) => a + b, 0)
+console.log(finalprice)
+
+//insert total price to base
+var finalPriceDB=await Orders.update(this.req.session.order.id).set({totalPrice:finalprice}).fetch()
+console.log("final price");
+console.log(finalPriceDB);
+
+//make payment intent object for stipe
   var payment={
     payment_method_types: ['card'],
     line_items: [
       {
         price_data: {
-          currency: 'usd',
+          currency: 'eur',
           product_data: {
-            name: 'T-shirt',
+            name: 'Your Order',
           },
-          unit_amount: 30000,
+          unit_amount: 0,
         },
         quantity: 1,
       },
     ],
     mode: 'payment',
-    success_url: 'http://localhost:1337/demo/homepage',
-    cancel_url: 'http://localhost:1337/demo/populate',
+    success_url: 'http://localhost:1337/success',
+    cancel_url: 'http://localhost:1337/demo/homepage',
   }
+  console.log(Math.ceil(finalprice*100));
+  payment.line_items[0].price_data.unit_amount = Math.ceil(finalprice*100);
   
-  payment.line_items[0].price_data.unit_amount=amount[0].totalPrice;
-  console.log(amount[0].totalPrice);
-
-      const session = await stripe.checkout.sessions.create(payment);
+//make payment
+const session = await stripe.checkout.sessions.create(payment);
     
     return this.res.json({ id: session.id });
     

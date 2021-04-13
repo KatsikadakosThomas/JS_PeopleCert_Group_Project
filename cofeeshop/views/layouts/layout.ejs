@@ -20,6 +20,7 @@
         a robots/noindex meta tag to help prevent any unwanted visits from
         search engines. */ else { %>
     <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <link rel="shortcut icon" href="/images/layout/main_logo.png" type="image/x-icon">
     <% } %> <% /* Stylesheets ======================== Stylesheets can be
         hard-coded as «link» tags, automatically injected by the asset pipeline
@@ -40,6 +41,7 @@
     <link rel="stylesheet" href="/styles/style-shop.css">
     <link rel="stylesheet" href="/styles/style-sign-in.css">
     <link rel="stylesheet" href="/styles/style-sign-up.css">
+    <link rel="stylesheet" href="/styles/style-success.css">
     <link rel="stylesheet" href="/styles/w3.css">
     <!--STYLES END-->
   </head>
@@ -52,12 +54,8 @@
             document.documentElement.scrollTop > 480
         ) {
             layoutHeaderHome.style.display = 'block';
-            layoutHeaderHome.classList.remove("animate__fadeOutUp")
-            layoutHeaderHome.classList.add("animate__fadeInDown")
         } else {
             layoutHeaderHome.style.display = 'none';
-            layoutHeaderHome.classList.add("animate__fadeOutUp")
-            layoutHeaderHome.classList.remove("animate__fadeInDown")
         }
     }
     </script>
@@ -110,19 +108,11 @@
       <div class="home-footer-top">
         <div class="home-footer-top-content">
           <img src="/images/layout/main_logo.png" alt="main_logo" />
-          <p>
-            “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor <br />
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, <br />
-            nostrud exercitation ullamco laboris.”
-          </p>
           <br />
           <br />
-          <h2>Stores</h2>
+          <h2>Store Location</h2>
           <p>
-            Dunsmuir Ave, Los Angeles, CA 90036, USA <br />
-            Atkins Ave, Brooklyn, NY 11208, USA
+            Sir Matt Busby Way, Old Trafford, Stretford <br> Manchester M16 0RA, United Kingdom
           </p>
         </div>
       </div>
@@ -141,47 +131,42 @@
     <% /* Delete the global `self` to help avoid client-side bugs. (see
         https://developer.mozilla.org/en-US/docs/Web/API/Window/self) */ %>
     <script>
+      // check if there is customer logged in by taking a hidden input value and hiding or showing links accordingly
       let sessionLogedIn = document.querySelector('.hidden_logged_in_input')
       console.log(sessionLogedIn.value)
-
       function checkIfLoggedIn(params) {
-        let allSignUpLinks = document.querySelectorAll(".sign-up-link")
-        let allLogInLinks = document.querySelectorAll(".log-in-link")
-        let allLogOutLinks = document.querySelectorAll(".logout-link")
-        let allCartLinks = document.querySelectorAll(".cart-link")
-        let allAcountEditLinks = document.querySelectorAll (".user-acount-link")
+        let stickyNavbarSignUpLink = document.querySelector(".sign-up-link")
+        let stickyNavbarLogInLink = document.querySelector(".log-in-link")
+        let stickyNavbarLogOutLink = document.querySelector(".logout-link")
+        let stickyNavbarCartLink = document.querySelector(".cart-link")
+        let stickyAcountEditLink = document.querySelector (".user-acount-link")
+        let allSignUpLinksTop = document.querySelector(".sign-up-link-top")
+        let allLogInLinksTop = document.querySelector(".log-in-link-top")
+        let allLogOutLinksTop = document.querySelector(".logout-link-top")
+        let allCartLinksTop = document.querySelector(".cart-link-top")
+        let allAcountEditLinksTop = document.querySelector(".user-acount-link-top")
         if (!params) {
-          allLogOutLinks.forEach(function (link) {
-            link.style.display = 'none'
-          })
-          allCartLinks.forEach(function (link) {
-            link.style.display = 'none'
-          })
-          allAcountEditLinks.forEach(function (link) {
-            link.style.display = 'none'
-          })
-          allSignUpLinks.forEach(function (link) {
-            link.style.display = 'inline-block'
-          })
-          allLogInLinks.forEach(function (link) {
-            link.style.display = 'inline-block'
-          })
+          stickyNavbarLogOutLink.style.display = 'none'
+          allLogOutLinksTop.style.display = 'none'
+          stickyNavbarCartLink.style.display = 'none'
+          allCartLinksTop.style.display = 'none'
+          stickyAcountEditLink.style.display = 'none'
+          allAcountEditLinksTop.style.display = 'none'
+          stickyNavbarSignUpLink.style.display = 'block'
+          allSignUpLinksTop.style.display = 'inline-block'
+          stickyNavbarLogInLink.style.display = 'block'
+          allLogInLinksTop.style.display = 'inline-block'
         } else {
-          allLogOutLinks.forEach(function (link) {
-            link.style.display = 'inline-block'
-          })
-          allAcountEditLinks.forEach(function (link) {
-            link.style.display = 'inline-block'
-          })
-          allCartLinks.forEach(function (link) {
-            link.style.display = 'inline-block'
-          })
-          allSignUpLinks.forEach(function (link) {
-            link.style.display = 'none'
-          })
-          allLogInLinks.forEach(function (link) {
-            link.style.display = 'none'
-          })
+          stickyNavbarLogOutLink.style.display = 'block'
+          allLogOutLinksTop.style.display = 'inline-block'
+          stickyAcountEditLink.style.display = 'block'
+          allAcountEditLinksTop.style.display = 'inline-block'
+          stickyNavbarCartLink.style.display = 'block'
+          allCartLinksTop.style.display = 'inline-block'
+          stickyNavbarSignUpLink.style.display = 'none'
+          allSignUpLinksTop.style.display = 'none'
+          stickyNavbarLogInLink.style.display = 'none'
+          allLogInLinksTop.style.display = 'none'
         }
       }
       checkIfLoggedIn(sessionLogedIn.value)
