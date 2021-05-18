@@ -70,7 +70,7 @@ module.exports = {
       * https://sailsjs.com/config/datastores                                     *
       *                                                                           *
       ****************************************************************************/
-      // ssl: true,
+      ssl: true,
 
     },
 
@@ -252,7 +252,7 @@ module.exports = {
     ***************************************************************************/
     onlyAllowOrigins: [
       'https://localhost',
-      'https://coffee-shop-team-project.herokuapp.com/',
+      'https://coffee-shop-team-project.herokuapp.com',
     ],
 
 
